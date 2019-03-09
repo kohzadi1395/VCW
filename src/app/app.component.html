@@ -2,23 +2,22 @@
   <app-menu></app-menu>
   <app-dashboard></app-dashboard>
   <div class="row dashboardRow">
-    <div class="col-md-2 testDiv" style="padding: 0px 1% 0px 0px;" *ngFor="let item of arrayDashboardElement">
+    <div class="col-md-2" style="padding: 0px 1% 0px 0px;" *ngFor="let item of arrayDashboardElement">
       <app-dashboard-element></app-dashboard-element>
     </div>
-    <!--<div class="col-md-8">-->
-    <!--</div>-->
-
-    <div class="row dashboardRow">
-      <div class="col-md-4">
-        <app-donut-chart></app-donut-chart>
-      </div>
-    </div>
-
-
-    <input type="text" [(ngModel)]="name" (input)="setInput($event)">
-    <p>{{Input}}</p>
-    <p>{{name}}</p>
-    <p>{{title}}</p>
-    <button class="btn btn-primary" [disabled]="!allowButton" (click)="ChangeTitle()">New</button>
-    <router-outlet></router-outlet>
   </div>
+  <div class="row dashboardRow">
+    <div class="col-md-4">
+      <app-donut-chart></app-donut-chart>
+    </div>
+  </div>
+
+
+  <input type="text" [(ngModel)]="name" (input)="setInput($event)">
+  <p>{{Input}}</p>
+  <p>{{name}}</p>
+  <p>{{title}}</p>
+  <button class="btn btn-primary" [disabled]="!allowButton" (click)="ChangeTitle()">New</button>
+  <router-outlet></router-outlet>
+
+</div>
