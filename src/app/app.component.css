@@ -1,0 +1,9 @@
+app-root {
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+.dashboardRow {
+  margin: 10px 2%;
+}
