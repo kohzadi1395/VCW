@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import 'bootstrap/dist/js/bootstrap.bundle';
 
 @Component({
   selector: 'app-menu',
