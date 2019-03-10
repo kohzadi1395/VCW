@@ -1,3 +1,6 @@
+/*Google fonts*/
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
 app-root {
   position: absolute;
   width: 100%;
@@ -11,3 +14,4 @@ app-root {
 .main-page {
   background-color: #E4E8F1;
 }
+

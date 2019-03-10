@@ -9,6 +9,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {DashboardElementComponent} from './dashboard-element/dashboard-element.component';
 import {DonutChartComponent} from './donut-chart/donut-chart.component';
 import {ChartsModule} from 'ng2-charts';
+import {CreateChallengeComponent} from './create-challenge/create-challenge.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {ChartsModule} from 'ng2-charts';
     DashboardComponent,
     DashboardElementComponent,
     DonutChartComponent,
+    CreateChallengeComponent,
   ],
   imports: [
     BrowserModule,
