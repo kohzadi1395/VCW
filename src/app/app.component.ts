@@ -1,4 +1,7 @@
 import {Component} from '@angular/core';
+import fontawesome from '@fortawesome/fontawesome';
+import faTrashAlt, {faBell} from '@fortawesome/fontawesome-free-regular/';
+import {faSearch} from '@fortawesome/fontawesome-free-solid';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +16,10 @@ export class AppComponent {
   arrayDashboardElement = [];
 
   constructor() {
+    fontawesome.library.add(faTrashAlt);
+    fontawesome.library.add(faBell);
+    fontawesome.library.add(faSearch);
+
     this.arrayDashboardElement.push(1);
     this.arrayDashboardElement.push(2);
     this.arrayDashboardElement.push(3);

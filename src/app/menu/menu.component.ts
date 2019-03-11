@@ -7,6 +7,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  newNotification = 5;
 
   constructor() {
   }

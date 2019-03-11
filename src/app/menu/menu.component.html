@@ -1,15 +1,15 @@
 <!--<div style="background-color:#ffffff ;height: 10%">-->
 <!--<img src="../../assets/image/vcw_logo3.png" class="img-rounded" height="84" width="138" style="padding-left: 5px"/>-->
 <!--</div>-->
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
+<nav class="navbar navbar-expand-lg navbar-light bg-white" style="height: 50px">
   <a class="navbar-brand" href="#">
-    <img src="../../assets/image/vcw_logo4.png" alt="" height="40" width="66">
+    <img src="../../assets/image/vcw_logo4.png" alt="" class="image-logo">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
           aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse pt-lg-2" id="navbarNav">
+  <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link text-dark" href="#">Home <span class="sr-only">(current)</span></a>
@@ -54,16 +54,51 @@
 
         </div>
       </li>
+
       <li class="nav-item active">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Create</button>
+        <button type="button" class="btn btn-primary btn-sm mt-1" data-toggle="modal" data-target="#exampleModal">Create
+        </button>
 
       </li>
     </ul>
   </div>
-  
+
   <form class="form-inline">
+    <i class="fas fa-search h3 mt-2 ml-2"></i>
+    <i class="fas fa-bookmark h3 mt-2 ml-2"></i>
+
+
+    <i class="nav-item dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="menu3" data-toggle="dropdown">
+        <i class="far fa-bell h3 mt-2"></i> <span class="badge badge-success new-alarm">{{newNotification}}</span>
+      </button>
+      <div class="dropdown-menu">
+        <p class=" text-muted small text-dark pl-2 mb-0">Current Challenge</p>
+        <a class="dropdown-item text-dark" href="#">Challenge 3</a>
+        <div class="dropdown-divider"></div>
+        <p class=" text-muted small text-dark pl-2 mb-0">Recent Challenges</p>
+        <a class="dropdown-item text-dark" href="#">Challenge 6</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">View All Invited Challenges </a>
+      </div>
+    </i>
+
+    <i class="nav-item dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="menu2" data-toggle="dropdown">
+        <img src="../assets/image/profile.png" class="rounded-circle m-2" width="45" height="45">
+      </button>
+      <div class="dropdown-menu">
+        <p class=" text-muted small text-dark pl-2 mb-0">Current Challenge</p>
+        <a class="dropdown-item text-dark" href="#">Challenge 3</a>
+        <div class="dropdown-divider"></div>
+        <p class=" text-muted small text-dark pl-2 mb-0">Recent Challenges</p>
+        <a class="dropdown-item text-dark" href="#">Challenge 6</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">View All Invited Challenges </a>
+      </div>
+    </i>
     <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
     <!--<button class="btn btn-outline-success my-2 my-sm-0">Search</button>-->
-<img src="">
+    <img src="">
   </form>
 </nav>

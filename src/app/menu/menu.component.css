@@ -1,0 +1,15 @@
+.new-alarm {
+  position: relative;
+  top: -20px;
+  left: -15px;
+}
+
+.image-profile {
+  width: 45px;
+  height: 45px;
+}
+
+.image-logo {
+  height: 40px;
+  width: 66px;
+}
