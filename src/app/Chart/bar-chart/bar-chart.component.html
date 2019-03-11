@@ -1,0 +1,12 @@
+<div class="card donutChart shadow">
+  <div class="card-body">
+    <div class="border-bottom">
+      <h6 class="card-subtitle mb-1 text-muted">Project Income (budget)</h6>
+    </div>
+    <div style="display: block">
+      <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+              [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType"
+              (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+</div>
