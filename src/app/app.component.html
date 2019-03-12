@@ -1,41 +1,51 @@
 <div class="main-page">
-  <div class="p-0 m-0">
-    <app-menu></app-menu>
-  </div>
-  <div class="row dashboardRow">
-    <div class="col-md-12 pl-2 pt-0 pb-0 pr-0">
-      <app-dashboard></app-dashboard>
-    </div>
-  </div>
-  <div class="row dashboardRow">
-    <div class="col-md-2 pl-2 pt-0 pb-0 pr-0" *ngFor="let item of arrayDashboardElement">
-      <app-dashboard-element></app-dashboard-element>
-    </div>
-  </div>
-  <div class="row dashboardRow">
-    <div class="col-md-4 pl-2 pt-0 pb-0 pr-0">
-      <app-donut-chart></app-donut-chart>
-    </div>
-    <div class="col-md-4 pl-2 pt-0 pb-0 pr-0">
-      <app-bar-chart></app-bar-chart>
-    </div>
-    <div class="col-md-4 pl-2 pt-0 pb-0 pr-0">
-      <app-pie-chart></app-pie-chart>
-    </div>
-    <div class="col-md-12 pl-2 pt-0 pb-0 pr-0">
-      <app-challenge-list></app-challenge-list>
-    </div>
-  </div>
+  <!--<div class="p-0 m-0">-->
+  <!--<app-menu></app-menu>-->
+  <!--</div>-->
+  <!--<div class="row dashboardRow">-->
+  <!--<div class="col-md-12 pl-2 pt-0 pb-0 pr-0">-->
+  <!--<app-dashboard></app-dashboard>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--<div class="row dashboardRow">-->
+  <!--<div class="col-md-2 pl-2 pt-0 pb-0 pr-0" *ngFor="let item of arrayDashboardElement">-->
+  <!--<app-dashboard-element></app-dashboard-element>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--<div class="row dashboardRow">-->
+  <!--<div class="col-md-4 pl-2 pt-0 pb-0 pr-0">-->
+  <!--<app-donut-chart></app-donut-chart>-->
+  <!--</div>-->
+  <!--<div class="col-md-4 pl-2 pt-0 pb-0 pr-0">-->
+  <!--<app-bar-chart></app-bar-chart>-->
+  <!--</div>-->
+  <!--<div class="col-md-4 pl-2 pt-0 pb-0 pr-0">-->
+  <!--<app-pie-chart></app-pie-chart>-->
+  <!--</div>-->
+  <!--<div class="col-md-12 pl-2 pt-0 pb-0 pr-0">-->
+  <!--<app-challenge-list></app-challenge-list>-->
+  <!--</div>-->
+  <!--</div>-->
 
 
-  <i class="far fa-trash-alt"></i>
-  <input type="text" [(ngModel)]="name" (input)="setInput($event)">
-  <p>{{Input}}</p>
-  <p>{{name}}</p>
-  <p>{{title}}</p>
-  <button class="btn btn-primary" [disabled]="!allowButton" (click)="ChangeTitle()">New</button>
+  <!--<i class="far fa-trash-alt"></i>-->
+  <!--<input type="text" [(ngModel)]="name" (input)="setInput($event)">-->
+  <!--<p>{{Input}}</p>-->
+  <!--<p>{{name}}</p>-->
+  <!--<p>{{title}}</p>-->
+  <!--<button class="btn btn-primary" [disabled]="!allowButton" (click)="ChangeTitle()">New</button>-->
 
 
-  <router-outlet></router-outlet>
+  <!--<router-outlet></router-outlet>-->
+
+
+  <div class="row" style="margin-top: 4%">
+    <div class="col-md-8 my-auto pl-5">
+      <app-login-description></app-login-description>
+    </div>
+    <div class="col-md-4 my-auto pt-3">
+      <app-login-panel></app-login-panel>
+    </div>
+  </div>
 
 </div>
