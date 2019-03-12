@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import fontawesome from '@fortawesome/fontawesome';
 import faTrashAlt, {faBell} from '@fortawesome/fontawesome-free-regular/';
 import {faSearch} from '@fortawesome/fontawesome-free-solid';
+import {faFacebookF, faGoogle, faTwitter} from '@fortawesome/fontawesome-free-brands';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,9 @@ export class AppComponent {
     fontawesome.library.add(faTrashAlt);
     fontawesome.library.add(faBell);
     fontawesome.library.add(faSearch);
+    fontawesome.library.add(faFacebookF);
+    fontawesome.library.add(faTwitter);
+    fontawesome.library.add(faGoogle);
 
     this.arrayDashboardElement.push(1);
     this.arrayDashboardElement.push(2);

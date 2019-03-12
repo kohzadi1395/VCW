@@ -15,7 +15,7 @@ import {PieChartComponent} from './Chart/pie-chart/pie-chart.component';
 import {ChallengeListComponent} from './Challenge/challenge-list/challenge-list.component';
 import {Ng2TableModule} from 'ng2-table/ng2-table';
 import {PaginationModule} from 'ng2-bootstrap/pagination';
-import {TabsModule} from 'ng2-bootstrap/ng2-bootstrap';
+import {TabsModule} from 'ng2-bootstrap';
 import {LoginPanelComponent} from './Login/login-panel/login-panel.component';
 import {LoginDescriptionComponent} from './Login/login-description/login-description.component';
 
