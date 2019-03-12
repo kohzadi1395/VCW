@@ -12,6 +12,10 @@ import {ChartsModule} from 'ng2-charts';
 import {CreateChallengeComponent} from './create-challenge/create-challenge.component';
 import {BarChartComponent} from './Chart/bar-chart/bar-chart.component';
 import {PieChartComponent} from './Chart/pie-chart/pie-chart.component';
+import {ChallengeListComponent} from './Challenge/challenge-list/challenge-list.component';
+import {Ng2TableModule} from 'ng2-table/ng2-table';
+import {PaginationModule} from 'ng2-bootstrap/pagination';
+import {TabsModule} from 'ng2-bootstrap/ng2-bootstrap';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,7 @@ import {PieChartComponent} from './Chart/pie-chart/pie-chart.component';
     CreateChallengeComponent,
     BarChartComponent,
     PieChartComponent,
+    ChallengeListComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,9 +35,14 @@ import {PieChartComponent} from './Chart/pie-chart/pie-chart.component';
     FormsModule,
     ChartsModule,
     AngularFontAwesomeModule,
+    Ng2TableModule,
+    PaginationModule,
+    TabsModule,
+    PaginationModule.forRoot(),
 
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
