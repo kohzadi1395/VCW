@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import 'bootstrap/dist/js/bootstrap.bundle';
+import {AuthService} from '../Service/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,7 +10,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 export class MenuComponent implements OnInit {
   newNotification = 5;
 
-  constructor() {
+  constructor(private auth: AuthService) {
   }
 
   ngOnInit() {

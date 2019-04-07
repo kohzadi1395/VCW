@@ -9,7 +9,7 @@ import {DashboardComponent} from './dashboardComponents/dashboard/dashboard.comp
 import {DashboardElementComponent} from './dashboardComponents/dashboard-element/dashboard-element.component';
 import {DonutChartComponent} from './Chart/donut-chart/donut-chart.component';
 import {ChartsModule} from 'ng2-charts';
-import {CreateChallengeComponent} from './create-challenge/create-challenge.component';
+import {CreateChallengeComponent} from './Challenge/create-challenge/create-challenge.component';
 import {BarChartComponent} from './Chart/bar-chart/bar-chart.component';
 import {PieChartComponent} from './Chart/pie-chart/pie-chart.component';
 import {ChallengeListComponent} from './Challenge/challenge-list/challenge-list.component';
@@ -18,6 +18,11 @@ import {PaginationModule} from 'ng2-bootstrap/pagination';
 import {TabsModule} from 'ng2-bootstrap';
 import {LoginPanelComponent} from './Login/login-panel/login-panel.component';
 import {LoginDescriptionComponent} from './Login/login-description/login-description.component';
+import {HomeComponent} from './home/home.component';
+import {LoginPageComponent} from './Login/login-page/login-page.component';
+import {HttpClientModule } from '@angular/common/http';
+import { DefaultComponent } from './default/default.component';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +37,9 @@ import {LoginDescriptionComponent} from './Login/login-description/login-descrip
     ChallengeListComponent,
     LoginPanelComponent,
     LoginDescriptionComponent,
+    HomeComponent,
+    LoginPageComponent,
+    DefaultComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +51,9 @@ import {LoginDescriptionComponent} from './Login/login-description/login-descrip
     PaginationModule,
     TabsModule,
     PaginationModule.forRoot(),
+    // RouterModule.forRoot(routes),
+    HttpClientModule ,
+
 
   ],
   providers: [],

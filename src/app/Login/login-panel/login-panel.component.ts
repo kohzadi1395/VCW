@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AuthService} from '../../Service/auth.service';
 
 @Component({
   selector: 'app-login-panel',
@@ -7,10 +8,18 @@ import {Component, OnInit} from '@angular/core';
 })
 export class LoginPanelComponent implements OnInit {
 
-  constructor() {
+  loginData = {
+    username: '',
+    password: ''
+  };
+
+  constructor(private auth: AuthService) {
   }
 
   ngOnInit() {
   }
 
+  login() {
+    this.auth.login(this.loginData);
+  }
 }

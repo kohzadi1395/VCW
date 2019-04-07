@@ -24,12 +24,7 @@ export class AppComponent {
     fontawesome.library.add(faTwitter);
     fontawesome.library.add(faGoogle);
 
-    this.arrayDashboardElement.push(1);
-    this.arrayDashboardElement.push(2);
-    this.arrayDashboardElement.push(3);
-    this.arrayDashboardElement.push(4);
-    this.arrayDashboardElement.push(5);
-    this.arrayDashboardElement.push(6);
+
     this.allowButton = false;
     setTimeout(() => {
       this.allowButton = true;
