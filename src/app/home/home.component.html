@@ -1,0 +1,27 @@
+<div class="p-0 m-0">
+  <app-menu></app-menu>
+</div>
+<div class="row dashboardRow">
+  <div class="col-md-12 pl-2 pt-0 pb-0 pr-0">
+    <app-dashboard></app-dashboard>
+  </div>
+</div>
+<div class="row dashboardRow">
+  <div class="col-md-2 pl-2 pt-0 pb-0 pr-0" *ngFor="let item of arrayDashboardElement">
+    <app-dashboard-element></app-dashboard-element>
+  </div>
+</div>
+<div class="row dashboardRow">
+  <div class="col-md-4 pl-2 pt-0 pb-0 pr-0">
+    <app-donut-chart></app-donut-chart>
+  </div>
+  <div class="col-md-4 pl-2 pt-0 pb-0 pr-0">
+    <app-bar-chart></app-bar-chart>
+  </div>
+  <div class="col-md-4 pl-2 pt-0 pb-0 pr-0">
+    <app-pie-chart></app-pie-chart>
+  </div>
+  <div class="col-md-12 pl-2 pt-0 pb-0 pr-0">
+    <app-challenge-list></app-challenge-list>
+  </div>
+</div>

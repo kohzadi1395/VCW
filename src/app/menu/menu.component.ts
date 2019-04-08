@@ -8,12 +8,20 @@ import {AuthService} from '../Service/auth.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  newNotification = 5;
+  newNotification = 0;
 
   constructor(private auth: AuthService) {
+    this.getNewNotification();
   }
 
   ngOnInit() {
   }
 
+  logout() {
+
+  }
+
+  getNewNotification() {
+    this.newNotification = 5;
+  }
 }

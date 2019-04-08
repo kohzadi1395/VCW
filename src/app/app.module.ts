@@ -22,6 +22,8 @@ import {HomeComponent} from './home/home.component';
 import {LoginPageComponent} from './Login/login-page/login-page.component';
 import {HttpClientModule } from '@angular/common/http';
 import { DefaultComponent } from './default/default.component';
+import { FileSelectDirective } from 'ng2-file-upload';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 @NgModule({
@@ -53,6 +55,7 @@ import { DefaultComponent } from './default/default.component';
     PaginationModule.forRoot(),
     // RouterModule.forRoot(routes),
     HttpClientModule ,
+    FileUploadModule,
 
 
   ],
