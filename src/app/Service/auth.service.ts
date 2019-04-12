@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
 })
 export class AuthService {
 
-  BaseUrl = 'http://localhost:53021/auth';
+  BaseUrl = 'http://localhost:61072/auth';
   NameKey = 'name';
   TokenKey = 'token';
 
@@ -22,8 +22,8 @@ export class AuthService {
     return localStorage.getItem(this.TokenKey);
   }
 
-
   get isAuthentication() {
+
     return !!this.token;
   }
 
@@ -36,8 +36,7 @@ export class AuthService {
   }
 
   authenticate(res) {
-    const authentication = res.json();
-
+    const authentication = res;
     if (!authentication.token) {
       return;
     }

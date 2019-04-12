@@ -3,6 +3,7 @@ import fontawesome from '@fortawesome/fontawesome';
 import faTrashAlt, {faBell} from '@fortawesome/fontawesome-free-regular/';
 import {faSearch} from '@fortawesome/fontawesome-free-solid';
 import {faFacebookF, faGoogle, faTwitter} from '@fortawesome/fontawesome-free-brands';
+import {AuthService} from './Service/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +13,9 @@ import {faFacebookF, faGoogle, faTwitter} from '@fortawesome/fontawesome-free-br
 export class AppComponent {
   title = 'VCW - Value Create Wheel';
   name = '';
-  Input = '';
   allowButton: boolean;
-  arrayDashboardElement = [];
 
-  constructor() {
+  constructor(private auth: AuthService) {
     fontawesome.library.add(faTrashAlt);
     fontawesome.library.add(faBell);
     fontawesome.library.add(faSearch);

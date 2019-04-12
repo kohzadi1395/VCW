@@ -5,14 +5,15 @@ import {CreateChallengeComponent} from './Challenge/create-challenge/create-chal
 import {LoginPageComponent} from './Login/login-page/login-page.component';
 import {DefaultComponent} from './default/default.component';
 
-const routes = [{
+const routes = [
+  {
   path: '',
   component: CreateChallengeComponent
 },
-//   {
-//   path: '',
-//   component: DefaultComponent
-// },
+  // {
+  //   path: '',
+  //   component: DefaultComponent
+  // },
   {
     path: 'challenge',
     component: CreateChallengeComponent

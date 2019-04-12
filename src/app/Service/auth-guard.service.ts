@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
 })
 export class AuthGuardService {
 
-  BaseUrl = 'http://localhost:53021/auth';
+  BaseUrl = 'http://localhost:61072/auth';
   NameKey = 'name';
   TokenKey = 'token';
 

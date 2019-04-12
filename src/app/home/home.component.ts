@@ -8,19 +8,14 @@ import {Router} from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  arrayDashboardElement = [];
+  arrayDashboardElement = [1, 2, 3, 4, 5, 6, 7, 8];
 
   constructor(private auth: AuthService, private router: Router) {
+
     if (!auth.isAuthentication) {
       this.router.navigate(['/login']);
     }
 
-    this.arrayDashboardElement.push(1);
-    this.arrayDashboardElement.push(2);
-    this.arrayDashboardElement.push(3);
-    this.arrayDashboardElement.push(4);
-    this.arrayDashboardElement.push(5);
-    this.arrayDashboardElement.push(6);
   }
 
   ngOnInit() {
