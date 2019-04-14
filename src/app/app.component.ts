@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import fontawesome from '@fortawesome/fontawesome';
 import faTrashAlt, {faBell} from '@fortawesome/fontawesome-free-regular/';
-import {faSearch} from '@fortawesome/fontawesome-free-solid';
+import {faSearch, faTimes} from '@fortawesome/fontawesome-free-solid';
 import {faFacebookF, faGoogle, faTwitter} from '@fortawesome/fontawesome-free-brands';
 import {AuthService} from './Service/auth.service';
 
@@ -22,6 +22,7 @@ export class AppComponent {
     fontawesome.library.add(faFacebookF);
     fontawesome.library.add(faTwitter);
     fontawesome.library.add(faGoogle);
+    fontawesome.library.add(faTimes);
 
 
     this.allowButton = false;

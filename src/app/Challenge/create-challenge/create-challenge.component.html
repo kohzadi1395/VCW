@@ -156,28 +156,29 @@
       </form>
     </div>
     <div class="col-3">
-      <form>
-        <div class="input-group">
-          <input type="text" class="form-control  border-primary" placeholder="Search">
-          <div class="input-group-append">
-            <button class="btn btn-primary" (click)="searchPerson()" data-toggle="collapse"
-                    data-target="#searchResult" aria-expanded="false" aria-controls="searchResult">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
-        <div class="collapse " id="searchResult">
-          <div class="card card-body">
-            <button class="btn" (click)="test(item)" *ngFor="let item of person">
-              <div class="d-flex">
-                <img style="width: 60px" src="{{basePath}}c{{item}}.jpg" class="rounded-circle">
-                c{{item}}
-              </div>
-            </button>
-          </div>
-        </div>
-        <img *ngFor="let item of invitePerson" src="{{basePath}}c{{item}}.jpg" class="rounded-circle">
-      </form>
+      <!--<form>-->
+        <!--<div class="input-group">-->
+          <!--<input type="text" class="form-control  border-primary" placeholder="Search">-->
+          <!--<div class="input-group-append">-->
+            <!--<button class="btn btn-primary" (click)="searchPerson()" data-toggle="collapse"-->
+                    <!--data-target="#searchResult" aria-expanded="false" aria-controls="searchResult">-->
+              <!--<i class="fas fa-search"></i>-->
+            <!--</button>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="collapse " id="searchResult">-->
+          <!--<div class="card card-body">-->
+            <!--<button class="btn" (click)="test(item)" *ngFor="let item of person">-->
+              <!--<div class="d-flex">-->
+                <!--<img style="width: 60px" src="{{basePath}}c{{item}}.jpg" class="rounded-circle">-->
+                <!--c{{item}}-->
+              <!--</div>-->
+            <!--</button>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<img *ngFor="let item of invitePerson" src="{{basePath}}c{{item}}.jpg" class="rounded-circle">-->
+      <!--</form>-->
+      <app-invite-person></app-invite-person>
     </div>
 
     <div class="row" style="margin-bottom:15px;">

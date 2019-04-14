@@ -4,12 +4,17 @@ import {HomeComponent} from './home/home.component';
 import {CreateChallengeComponent} from './Challenge/create-challenge/create-challenge.component';
 import {LoginPageComponent} from './Login/login-page/login-page.component';
 import {DefaultComponent} from './default/default.component';
+import {InvitePersonComponent} from './invite-person/invite-person.component';
 
 const routes = [
   {
   path: '',
   component: CreateChallengeComponent
 },
+//   {
+//     path: '',
+//     component: InvitePersonComponent
+//   },
   // {
   //   path: '',
   //   component: DefaultComponent

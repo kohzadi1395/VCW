@@ -1,5 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -24,6 +25,12 @@ import {HttpClientModule } from '@angular/common/http';
 import { DefaultComponent } from './default/default.component';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { FileUploadModule } from 'ng2-file-upload';
+import { InvitePersonComponent } from './invite-person/invite-person.component';
+import {SuiModule} from 'ng2-semantic-ui';
+import { TagComponent } from './tag/tag.component';
+
+
+
 
 
 @NgModule({
@@ -42,6 +49,8 @@ import { FileUploadModule } from 'ng2-file-upload';
     HomeComponent,
     LoginPageComponent,
     DefaultComponent,
+    InvitePersonComponent,
+    TagComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +65,8 @@ import { FileUploadModule } from 'ng2-file-upload';
     // RouterModule.forRoot(routes),
     HttpClientModule ,
     FileUploadModule,
-
+    SuiModule,
+    MatAutocompleteModule,
 
   ],
   providers: [],

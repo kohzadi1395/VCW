@@ -57,4 +57,9 @@ export class AuthService {
       this.router.navigate(['/']);
     });
   }
+
+  getUsers() {
+    const res = this.http.get('http://localhost:61072/api/users').toPromise();
+    return res;
+  }
 }

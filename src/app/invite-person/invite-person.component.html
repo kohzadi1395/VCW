@@ -1,0 +1,35 @@
+<div class="input-group" id="adv-search">
+  <input type="text" class="form-control" placeholder="Invite Person"/>
+  <div class="input-group-btn">
+    <div class="btn-group" role="group">
+      <div class="dropdown dropdown-lg">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                aria-expanded="false"><span class="fas fa-search"></span></button>
+        <div class="dropdown-menu dropdown-menu-right" role="menu">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="filter">Filter by</label>
+              <select class="form-control" id="filter" (change)="onChange($event.target.selectedOptions[0].label)">
+                <option *ngFor="let item of tagService.tags| async">{{item}}</option>
+              </select>
+            </div>
+            <div>
+              <app-tag *ngFor="let selectedTag of selectedTags" [TagTitle]=selectedTag
+                       (removeItem)="removeTagFromList($event)"></app-tag>
+            </div>
+            <div class="form-group">
+              <label for="contain2">Contains the words</label>
+              <input class="form-control" id="contain2" type="text"/>
+            </div>
+            <button type="submit" class="btn btn-primary"><span class="fas fa-search"
+                                                                aria-hidden="true"></span></button>
+          </form>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary"><span class="fas fa-search"
+                                                          aria-hidden="true"></span></button>
+    </div>
+  </div>
+</div>
+
+
