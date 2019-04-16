@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../Service/auth.service';
+import {AuthService} from '../../Service/auth.service';
 
 @Component({
   selector: 'app-default',
@@ -8,7 +8,7 @@ import {AuthService} from '../Service/auth.service';
 })
 export class DefaultComponent implements OnInit {
 
-  constructor(private auth: AuthService) {
+  constructor(public auth: AuthService) {
   }
 
   ngOnInit() {

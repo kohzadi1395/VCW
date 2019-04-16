@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 
 @Injectable({
@@ -10,6 +10,8 @@ export class AuthService {
   BaseUrl = 'http://localhost:61072/auth';
   NameKey = 'name';
   TokenKey = 'token';
+  result: object;
+
 
   constructor(private http: HttpClient, private router: Router) {
   }
@@ -32,7 +34,6 @@ export class AuthService {
       this.authenticate(res);
       this.router.navigate(['/home']);
     });
-
   }
 
   authenticate(res) {
@@ -62,4 +63,6 @@ export class AuthService {
     const res = this.http.get('http://localhost:61072/api/users').toPromise();
     return res;
   }
+
+
 }

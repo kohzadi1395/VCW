@@ -10,7 +10,7 @@ import {AuthService} from '../Service/auth.service';
 export class MenuComponent implements OnInit {
   newNotification = 0;
 
-  constructor(private auth: AuthService) {
+  constructor(public auth: AuthService) {
     this.getNewNotification();
   }
 
@@ -18,7 +18,7 @@ export class MenuComponent implements OnInit {
   }
 
   logout() {
-
+    this.auth.logout();
   }
 
   getNewNotification() {

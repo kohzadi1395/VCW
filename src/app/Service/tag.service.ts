@@ -13,7 +13,7 @@ export class TagService {
   tags = this.tagSubject.asObservable();
 
 
-  constructor(private   http: HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
   getTags() {

@@ -1,10 +1,9 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {HomeComponent} from './home/home.component';
+import {HomeComponent} from './MainPage/home/home.component';
 import {CreateChallengeComponent} from './Challenge/create-challenge/create-challenge.component';
-import {LoginPageComponent} from './Login/login-page/login-page.component';
-import {DefaultComponent} from './default/default.component';
-import {InvitePersonComponent} from './invite-person/invite-person.component';
+import {LoginPageComponent} from './MainPage/Login/login-page/login-page.component';
+import {DefaultComponent} from './MainPage/default/default.component';
 
 const routes = [
   {
@@ -15,10 +14,10 @@ const routes = [
 //     path: '',
 //     component: InvitePersonComponent
 //   },
-  // {
-  //   path: '',
-  //   component: DefaultComponent
-  // },
+//   {
+//     path: '',
+//     component: DefaultComponent,
+//   },
   {
     path: 'challenge',
     component: CreateChallengeComponent

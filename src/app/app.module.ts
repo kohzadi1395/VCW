@@ -17,21 +17,20 @@ import {ChallengeListComponent} from './Challenge/challenge-list/challenge-list.
 import {Ng2TableModule} from 'ng2-table/ng2-table';
 import {PaginationModule} from 'ng2-bootstrap/pagination';
 import {TabsModule} from 'ng2-bootstrap';
-import {LoginPanelComponent} from './Login/login-panel/login-panel.component';
-import {LoginDescriptionComponent} from './Login/login-description/login-description.component';
-import {HomeComponent} from './home/home.component';
-import {LoginPageComponent} from './Login/login-page/login-page.component';
+import {LoginPanelComponent} from './MainPage/Login/login-panel/login-panel.component';
+import {LoginDescriptionComponent} from './MainPage/Login/login-description/login-description.component';
+import {HomeComponent} from './MainPage/home/home.component';
+import {LoginPageComponent} from './MainPage/Login/login-page/login-page.component';
 import {HttpClientModule } from '@angular/common/http';
-import { DefaultComponent } from './default/default.component';
+import { DefaultComponent } from './MainPage/default/default.component';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { FileUploadModule } from 'ng2-file-upload';
-import { InvitePersonComponent } from './invite-person/invite-person.component';
+import { InvitePersonComponent } from './InvitePersonToChallenge/invite-person/invite-person.component';
 import {SuiModule} from 'ng2-semantic-ui';
 import { TagComponent } from './tag/tag.component';
-
-
-
-
+import { DashboardPanelComponent } from './dashboardComponents/dashboard-panel/dashboard-panel.component';
+import { SearchedPersonComponent } from './InvitePersonToChallenge/searched-peson/searched-person.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -51,8 +50,11 @@ import { TagComponent } from './tag/tag.component';
     DefaultComponent,
     InvitePersonComponent,
     TagComponent,
+    DashboardPanelComponent,
+    SearchedPersonComponent,
   ],
   imports: [
+    DragDropModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -67,7 +69,6 @@ import { TagComponent } from './tag/tag.component';
     FileUploadModule,
     SuiModule,
     MatAutocompleteModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

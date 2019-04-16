@@ -1,5 +1,5 @@
 <div class="input-group" id="adv-search">
-  <input type="text" class="form-control" placeholder="Invite Person"/>
+  <input type="text" [(ngModel)]="searchPersonData.name"  class="form-control" placeholder="Invite Person"/>
   <div class="input-group-btn">
     <div class="btn-group" role="group">
       <div class="dropdown dropdown-lg">
@@ -18,18 +18,23 @@
                        (removeItem)="removeTagFromList($event)"></app-tag>
             </div>
             <div class="form-group">
-              <label for="contain2">Contains the words</label>
-              <input class="form-control" id="contain2" type="text"/>
+              <label for="contain2">Invite Person</label>
+              <input class="form-control" id="contain2" name="name" [(ngModel)]="searchPersonData.name" type="text"/>
             </div>
-            <button type="submit" class="btn btn-primary"><span class="fas fa-search"
+            <button type="submit" class="btn btn-primary" (click)="searchPeron()"><span class="fas fa-search"
                                                                 aria-hidden="true"></span></button>
           </form>
         </div>
       </div>
-      <button type="button" class="btn btn-primary"><span class="fas fa-search"
+      <button type="button" class="btn btn-primary" (click)="searchPeron()"><span class="fas fa-search"
                                                           aria-hidden="true"></span></button>
     </div>
   </div>
 </div>
+<div class="d-flex flex-column">
+  <app-searched-peron  [Person]="item" *ngFor="let item of invitePersonService.result"></app-searched-peron>
+</div>
+
+
 
 

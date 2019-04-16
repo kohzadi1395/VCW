@@ -1,10 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {TagService} from '../Service/tag.service';
-
-
-interface Itag {
-  Text: string;
-}
+import {TagService} from '../../Service/tag.service';
+import {InvitePersonService} from '../../Service/invite-peosn.service';
 
 /**
  * @title Autocomplete overview
@@ -16,10 +12,18 @@ interface Itag {
   styleUrls: ['./invite-person.component.css']
 })
 export class InvitePersonComponent implements OnInit {
+
+  constructor(public tagService: TagService, public invitePersonService: InvitePersonService) {
+  }
+
+
   selectedTags = [];
 
-  constructor(private tagService: TagService) {
-  }
+  searchPersonData = {
+    tags: this.selectedTags,
+    name: ''
+  };
+
 
   onChange(value) {
     const tmp = this.selectedTags.findIndex(x => x === value);
@@ -38,5 +42,11 @@ export class InvitePersonComponent implements OnInit {
 
   ngOnInit(): void {
     this.tagService.getTags();
+  }
+
+  searchPeron() {
+    console.log('searchPeron()');
+    console.log(this.searchPersonData);
+    this.invitePersonService.searchPeron(this.searchPersonData);
   }
 }
