@@ -4,7 +4,8 @@ import {HomeComponent} from './MainPage/home/home.component';
 import {CreateChallengeComponent} from './Challenge/create-challenge/create-challenge.component';
 import {LoginPageComponent} from './MainPage/Login/login-page/login-page.component';
 import {DefaultComponent} from './MainPage/default/default.component';
-import {DashboardPanelComponent} from "./dashboardComponents/dashboard-panel/dashboard-panel.component";
+import {DashboardPanelComponent} from './dashboardComponents/dashboard-panel/dashboard-panel.component';
+import {ChallengeListComponent} from './Challenge/challenge-list/challenge-list.component';
 
 const routes = [
   // {
@@ -44,10 +45,19 @@ const routes = [
   {
     path: 'home',
     component: HomeComponent,
-    children: [{
-      path: 'challenge',
-      component: CreateChallengeComponent
-    },
+    children: [
+      {
+        path: 'challenge',
+        component: CreateChallengeComponent
+      },
+      {
+        path: 'allChallenge',
+        component: ChallengeListComponent
+      },
+      {
+        path: 'allChallenge/:id',
+        component: ChallengeListComponent
+      },
       {
         path: '',
         component: DashboardPanelComponent

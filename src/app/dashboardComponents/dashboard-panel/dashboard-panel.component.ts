@@ -6,7 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./dashboard-panel.component.css']
 })
 export class DashboardPanelComponent implements OnInit {
-  arrayDashboardElement = [1, 2, 3, 4, 5, 6, 7, 8];
+  arrayDashboardElement = [1, 2, 3, 4, 5, 6];
 
   constructor() {
   }

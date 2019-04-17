@@ -17,40 +17,30 @@
 
       <!-- Dropdown -->
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbardrop1" data-toggle="dropdown" *ngIf="!auth.isAuthentication">
+        <a class="nav-link dropdown-toggle text-dark" id=" navbardrop1"
+           data-toggle="dropdown"
+           *ngIf="auth.isAuthentication">
           My Challenges
         </a>
         <div class="dropdown-menu">
-          <p class=" text-muted small pl-2 mb-0">Current Challenge</p>
-          <a class="dropdown-item text-dark" href="#">Challenge 1</a>
-          <a class="dropdown-item text-dark" href="#">Challenge 2</a>
-          <a class="dropdown-item text-dark" href="#">Challenge 3</a>
+          <p class=" text-muted small pl-2 mb-0">My Current Challenge</p>
+          <a class="dropdown-item text-dark" *ngIf="MyCurrentChallenges && !MyCurrentChallenges.length<= 0">---</a>
+          <a class="dropdown-item text-dark" [routerLink]="['allChallenge']"
+             *ngFor="let myCurrentChallenge of MyCurrentChallenges">{{myCurrentChallenge.title}}</a>
           <div class="dropdown-divider"></div>
-          <p class=" text-muted small text-dark pl-2 mb-0">Recent Challenges</p>
-          <a class="dropdown-item text-dark" href="#">Challenge 4</a>
-          <a class="dropdown-item text-dark" href="#">Challenge 5</a>
-          <a class="dropdown-item text-dark" href="#">Challenge 6</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item text-dark" href="#">View All Challenges </a>
-
+          <a class="dropdown-item text-dark" [routerLink]="['allChallenge']">All My Challenges </a>
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbardrop2" data-toggle="dropdown">
-          Invited Challenges
-        </a>
+        <a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown">
+          Invited Challenges </a>
         <div class="dropdown-menu">
-          <p class=" text-muted small text-dark pl-2 mb-0">Current Challenge</p>
-          <a class="dropdown-item text-dark" href="#">Challenge 1</a>
-          <a class="dropdown-item text-dark" href="#">Challenge 2</a>
-          <a class="dropdown-item text-dark" href="#">Challenge 3</a>
-          <div class="dropdown-divider"></div>
           <p class=" text-muted small text-dark pl-2 mb-0">Recent Challenges</p>
-          <a class="dropdown-item text-dark" href="#">Challenge 4</a>
-          <a class="dropdown-item text-dark" href="#">Challenge 5</a>
-          <a class="dropdown-item text-dark" href="#">Challenge 6</a>
+          <a class="dropdown-item text-dark" *ngIf="InviteRecentChallenges && !InviteRecentChallenges.length">---</a>
+          <a class="dropdown-item text-dark" [routerLink]="['allChallenge']"
+             *ngFor="let inviteRecentChallenge of InviteRecentChallenges">{{inviteRecentChallenge.title}}</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">View All Invited Challenges </a>
+          <a class="dropdown-item text-dark" [routerLink]="['allChallenge']">All Invited Challenges </a>
 
         </div>
       </li>
@@ -58,7 +48,6 @@
       <li class="nav-item active">
         <button type="button" class="btn btn-primary btn-sm mt-1" [routerLink]="['challenge']">Create
         </button>
-
       </li>
     </ul>
   </div>

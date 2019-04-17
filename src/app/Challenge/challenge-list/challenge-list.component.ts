@@ -33,16 +33,16 @@ export class ChallengeListComponent implements OnInit {
 
   private data: Array<any> = [{
     name: 'Rogan Tucker',
-    position: 'Arcu Vestibulum Ante Associates',
+    position: 'Abc Vestibulum Ante Associates',
     office: 'Jersey',
     ext: '0885',
-    startDate: '2015/01/04',
+    startDate: '2018/05/04',
     salary: 861.632
   }, {
-    name: 'Rogan Tucker',
-    position: 'Arcu Vestibulum Ante Associates',
+    name: 'Regan Tucker',
+    position: 'Arc Vestibulum Ante Associates',
     office: 'Jersey',
-    ext: '0895',
+    ext: '3001',
     startDate: '2015/01/04',
     salary: 861.632
   }];
