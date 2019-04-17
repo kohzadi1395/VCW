@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Subject} from 'rxjs/Rx';
+import {Person} from '../shared/Track.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,16 +10,13 @@ export class InvitePersonService {
   private suggestionPersonList: any[];
   private suggestionPersonSubject = new Subject();
   PersonList = this.suggestionPersonSubject.asObservable();
-   result: Response;
+  result: Person[];
 
   constructor(private http: HttpClient) {
   }
 
   searchPeron(updatedReservation) {
     const objectToSend = JSON.stringify(updatedReservation);
-
-    // const headers = new Headers();
-    // headers.append('Content-Type', 'application/json');
 
     const httpOptions = {
       headers: new HttpHeaders({
@@ -28,11 +26,9 @@ export class InvitePersonService {
     console.log(objectToSend);
     this.http.get('http://localhost:61072/api/userprofile')
       .map((res: Response) => res).subscribe(res => {
-
-      this.suggestionPersonList = Object.keys(res).map(key => res[key].Text);
+      this.suggestionPersonList = Object.keys(res).map(key => res[key]);
       this.suggestionPersonSubject.next(this.suggestionPersonList);
-      this.result = res;
-      console.log(this.result);
+      this.result = Object.keys(res).map(key => res[key]);
     });
   }
 }

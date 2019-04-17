@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {TagService} from '../../Service/tag.service';
 import {InvitePersonService} from '../../Service/invite-peosn.service';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {Person} from '../../shared/Track.model';
 
 /**
  * @title Autocomplete overview
@@ -18,6 +20,7 @@ export class InvitePersonComponent implements OnInit {
 
 
   selectedTags = [];
+  selectedPersons: Person[];
 
   searchPersonData = {
     tags: this.selectedTags,
@@ -48,5 +51,28 @@ export class InvitePersonComponent implements OnInit {
     console.log('searchPeron()');
     console.log(this.searchPersonData);
     this.invitePersonService.searchPeron(this.searchPersonData);
+  }
+
+  drop(event: CdkDragDrop<Person[]>) {
+    // drop(event) {
+    console.log(event);
+    moveItemInArray(this.invitePersonService.result, event.previousIndex, event.currentIndex);
+
+  }
+
+  onTalkDrop(event: CdkDragDrop<Person[]>) {
+    console.log(event);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    }
+  }
+
+  onTrackDrop(event: CdkDragDrop<Person[]>) {
+    moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
   }
 }

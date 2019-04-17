@@ -1,3 +1,11 @@
+export interface Person {
+  firstName: string;
+  lastName: string;
+  title: string;
+  image: string;
+  company: string;
+}
+
 export interface Track {
   title: string;
   id: string;

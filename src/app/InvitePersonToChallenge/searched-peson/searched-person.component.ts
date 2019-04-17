@@ -23,7 +23,6 @@ export class SearchedPersonComponent implements OnInit {
   @Input()
   set Person(value: { firstName: string; lastName: string; company: string; image: string; title: string }) {
     this.person = value;
-    console.log(this.person);
   }
 
   constructor() {

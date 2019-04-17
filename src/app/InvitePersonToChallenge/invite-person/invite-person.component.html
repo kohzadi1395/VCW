@@ -1,8 +1,8 @@
 <div class="input-group" id="adv-search">
-  <input type="text" [(ngModel)]="searchPersonData.name"  class="form-control" placeholder="Invite Person"/>
+  <input type="text" [(ngModel)]="searchPersonData.name" class="form-control" placeholder="Invite Person"/>
   <div class="input-group-btn">
     <div class="btn-group" role="group">
-      <div class="dropdown dropdown-lg">
+      <div class="dropdown">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
                 aria-expanded="false"><span class="fas fa-search"></span></button>
         <div class="dropdown-menu dropdown-menu-right" role="menu">
@@ -22,19 +22,53 @@
               <input class="form-control" id="contain2" name="name" [(ngModel)]="searchPersonData.name" type="text"/>
             </div>
             <button type="submit" class="btn btn-primary" (click)="searchPeron()"><span class="fas fa-search"
-                                                                aria-hidden="true"></span></button>
+                                                                                        aria-hidden="true"></span>
+            </button>
           </form>
         </div>
       </div>
       <button type="button" class="btn btn-primary" (click)="searchPeron()"><span class="fas fa-search"
-                                                          aria-hidden="true"></span></button>
+                                                                                  aria-hidden="true"></span></button>
     </div>
   </div>
 </div>
-<div class="d-flex flex-column">
-  <app-searched-peron  [Person]="item" *ngFor="let item of invitePersonService.result"></app-searched-peron>
+<!--<div class="d-flex flex-column" cdkDropList [cdkDropListData]="invitePersonService.result"-->
+<!--(cdkDropListDropped)="onTrackDrop($event)" cdkDropListOrientation="horizontal">-->
+<div cdkDropList (cdkDropListDropped)="onTrackDrop($event)">
+  <div class="mt-1 pl-1 d-flex rounded  shadow bg-light" cdkDrag *ngFor="let person of invitePersonService.result">
+    <div class="col-2 text-center  p-0">
+      <img class="rounded-circle" src="../../../assets/image/ProfileImage/{{person.image}}">
+    </div>
+    <div class="col-8 pl-2 my-auto">
+      <p class="font-weight-bold font"> {{person.lastName}} {{person.firstName}}</p> {{person.title}}
+      At {{person.company}}
+    </div>
+    <div class="col-2 p-0 my-auto  text-center">
+      <button class="btn btn-primary rounded-circle"><span class="fas fa-plus text-white"></span></button>
+    </div>
+  </div>
 </div>
 
+<!--<div style="display: flex">-->
 
+  <!--<div cdkDropList [cdkDropListData]="invitePersonService.result"-->
 
+       <!--[cdkDropListConnectedTo]="selectedPersons" #firstList="invitePersonService.result"-->
 
+       <!--(cdkDropListDropped)="onTrackDrop($event)" style="width: 30%">-->
+
+    <!--<div *ngFor="let selectedPerson of selectedPersons" class="pop" cdkDrag>{{artist}}</div>-->
+
+  <!--</div>-->
+
+  <!--<div cdkDropList [cdkDropListData]="alteArtists"-->
+
+       <!--[cdkDropListConnectedTo]="firstList" #secondList="cdkDropList"-->
+
+       <!--(cdkDropListDropped)="drop($event)" style="width: 30%">-->
+
+    <!--<div *ngFor="let artist of alteArtists" class="pop" cdkDrag>{{artist}}</div>-->
+
+  <!--</div>-->
+
+<!--</div>-->
