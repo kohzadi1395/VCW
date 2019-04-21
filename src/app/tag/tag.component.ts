@@ -34,6 +34,6 @@ export class TagComponent implements OnInit {
 
   onClose() {
     this.hideTag = true;
-    // this.removeItem.emit(this.tagTitle);
+    this.removeItem.emit(this.tagTitle);
   }
 }

@@ -1,0 +1,59 @@
+<div class="container mt-2 ">
+  <div class="row  rounded  pb-3">
+    <div class="col-7 bg-light shadow pr-3 mr-3 border border-dark">
+      <form (ngSubmit)="onSubmit()" [formGroup]="form">
+        <div class="form-group">
+          <label class="col-form-label" for="ChallengeTitle">Title</label>
+          <input [ngClass]="{'error':isValid('title')}" class="form-control" formControlName="title" id="ChallengeTitle"
+                 type="text">
+        </div>
+        <div class="form-group">
+          <label for="ChallengeDescription">Challenge's Description</label>
+          <textarea [ngClass]="{'error':isValid('description')}" class="form-control" formControlName="description"
+                    id="ChallengeDescription" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="Deadline">Deadline for receive idea</label>
+          <input [ngClass]="{'error':isValid('deadline')}" class="form-control" formControlName="deadline" id="Deadline"
+                 type="date">
+          <label for="challengeType">challenge Type</label>
+          <select [ngClass]="{'error':isValid('challengeType')}" class="custom-select mb-2 mr-sm-2 mb-sm-0"
+                  formControlName="challengeType" id="challengeType">
+            <option selected>Choose...</option>
+            <option value="1">Personal</option>
+            <option value="2">Company's</option>
+          </select>
+          <label for="companyName">Company's Name</label>
+          <input [ngClass]="{'error':isValid('companyName')}" class="form-control" formControlName="companyName"
+                 id="companyName"
+                 type="text">
+        </div>
+        <div class="form-group border border-primary rounded">
+          <div class="row">
+            <div class="col-4">
+              <img src="../../../assets/Icon/medal_gold.png">
+              <input [ngClass]="{'error':isValid('firstBounce')}" class="form-control" formControlName="firstBounce"
+                     id="firstBounce"
+                     type="number">
+            </div>
+            <div class="col-4">
+              <img src="../../../assets/Icon/medal_silver.png">
+              <input [ngClass]="{'error':isValid('secondBounce')}" class="form-control" formControlName="secondBounce"
+                     id="SecondBounce"
+                     type="number">
+            </div>
+            <div class="col-4">
+              <img src="../../../assets/Icon/medal_bronze.png">
+              <input [ngClass]="{'error':isValid('thirdBounce')}" class="form-control" formControlName="thirdBounce"
+                     id="ThirdBounce"
+                     type="number">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-4 bg-light shadow  pl-2 pt-3 border border-dark">
+      <app-invite-person></app-invite-person>
+    </div>
+  </div>
+</div>

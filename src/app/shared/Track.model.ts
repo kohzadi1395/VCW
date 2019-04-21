@@ -6,6 +6,7 @@ export interface Person {
   image: string;
   company: string;
 }
+
 export interface Challenge {
   id: string;
   title: string;
@@ -14,16 +15,24 @@ export interface Challenge {
   firstBounce: string;
   secondBounce: string;
   thirdBounce: string;
+  companyName: string;
+  challengeType: boolean;
+
 }
 
-export interface Track {
-  title: string;
-  id: string;
-  tasks: Task[];
+export interface GridRowData {
+  columnNameClicked: string;
+  columnData: Challenge;
 }
 
-export interface Task {
-  title: string;
-  description: string;
-  id: string;
-}
+// export interface Track {
+//   title: string;
+//   id: string;
+//   tasks: Task[];
+// }
+//
+// export interface Task {
+//   title: string;
+//   description: string;
+//   id: string;
+// }

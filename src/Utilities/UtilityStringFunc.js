@@ -1,5 +1,6 @@
-import axios from "axios";
-
+/**
+ * @return {string}
+ */
 export function NumFormatter(num) {
   let si = [
     {value: 1, symbol: ""},
@@ -21,22 +22,7 @@ export function NumFormatter(num) {
 }
 
 
-export function getUserTheme(userId) {
-  return axios.get('http://www.mocky.io/v2/5c2b0de83000007000abaf1b')         //main
-  // return axios.get('http://www.mocky.io/v2/5c2b138f3000001200abaf21')       //red
-  // return axios.get('http://www.mocky.io/v2/5c2b14fc3000004c00abaf25')     //nok medadi
-  //return axios.get('http://www.mocky.io/v2/5c2b156c3000006900abaf26') //Purple
-    .then(response => {
-      this.response = response.data;
-      return this.response
-    })
 
-  // return
-  // {
-  //     fontColor:"#fff",
-  //     backgroundColor: "#1e3557"
-  // };
-}
 
 export function Capitalize(s) {
   if (typeof s !== 'string') return '';
@@ -45,7 +31,7 @@ export function Capitalize(s) {
 
 export function EmailValidation() {
   return control => {
-    var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return regex.test(control.value) ? null : {invalidEmail: true};
   };
 }
