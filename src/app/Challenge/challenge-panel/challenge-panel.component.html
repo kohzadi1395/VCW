@@ -1,0 +1,137 @@
+<div *ngIf="challenge" class="row">
+  <div class="col-12 text-center ">
+    <p class="h2">{{challenge.title}}{{challenge.challengeStateCode}}</p>
+    <div class="d-inline-flex ">
+      <div class="m-0 p-0 border-0 d-flex flex-column">
+        <img alt="" class="m-0 p-0 border-0"
+             src="../../../assets/image/11.png">
+        <img (click)="StepOne()" [ngClass]="challenge.challengeStateCode+1>0 ? 'btn' : ''"
+             [src]="challenge.challengeStateCode+1>0?'../../../assets/image/12.png':'../../../assets/image/12gray.png'"
+             alt="" class="m-0 p-0 border-0">
+        <img alt="" class="m-0 p-0 border-0"
+             src="../../../assets/image/13.png">
+      </div>
+      <div class="m-0 p-0 border-0 d-flex flex-column">
+        <img [src]="challenge.challengeStateCode+1>1?'../../../assets/image/21.png':'../../../assets/image/21gray.png'"
+             alt=""
+             class="m-0 p-0 border-0">
+        <img (click)="StepOne()" [ngClass]="challenge.challengeStateCode+1>0 ? 'btn' : ''"
+             [src]="challenge.challengeStateCode+1>1?'../../../assets/image/22.png':'../../../assets/image/22gray.png'"
+             alt="" class="m-0 p-0 border-0">
+        <img [src]="challenge.challengeStateCode+1>1?'../../../assets/image/23.png':'../../../assets/image/23gray.png'"
+             alt=""
+             class="m-0 p-0 border-0">
+      </div>
+
+      <div class="m-0 p-0 border-0 d-flex flex-column">
+        <img [src]="challenge.challengeStateCode+1>2?'../../../assets/image/31.png':'../../../assets/image/31gray.png'"
+             alt=""
+             class="m-0 p-0 border-0">
+        <img [ngClass]="challenge.challengeStateCode+1>2 ? 'btn' : ''"
+             [src]="challenge.challengeStateCode+1>2?'../../../assets/image/32.png':'../../../assets/image/32gray.png'"
+             alt=""
+             class="m-0 p-0 border-0">
+        <img [ngClass]="challenge.challengeStateCode+1>3 ? 'btn' : ''"
+             [src]="challenge.challengeStateCode+1>3?'../../../assets/image/33.png':'../../../assets/image/33gray.png'"
+             alt=""
+             class="m-0 p-0 border-0">
+        <img [src]="challenge.challengeStateCode+1>3?'../../../assets/image/34.png':'../../../assets/image/34gray.png'"
+             alt=""
+             class="m-0 p-0 border-0">
+      </div>
+      <div class="m-0 p-0 border-0 d-flex flex-column">
+        <img [src]="challenge.challengeStateCode+1>4?'../../../assets/image/41.png':'../../../assets/image/41gray.png'"
+             alt=""
+             class="m-0 p-0 border-0">
+        <img [ngClass]="challenge.challengeStateCode+1>4 ? 'btn' : ''"
+             [src]="challenge.challengeStateCode+1>4?'../../../assets/image/42.png':'../../../assets/image/42gray.png'"
+             alt=""
+             class="m-0 p-0 border-0">
+        <img [ngClass]="challenge.challengeStateCode+1>5 ? 'btn' : ''"
+             [src]="challenge.challengeStateCode+1>5?'../../../assets/image/43.png':'../../../assets/image/43gray.png'"
+             alt=""
+             class="m-0 p-0 border-0">
+        <img [ngClass]="challenge.challengeStateCode+1>6 ? 'btn' : ''"
+             [src]="challenge.challengeStateCode+1>6?'../../../assets/image/44.png':'../../../assets/image/44gray.png'"
+             alt=""
+             class="m-0 p-0 border-0">
+        <img [src]="challenge.challengeStateCode+1>6?'../../../assets/image/45.png':'../../../assets/image/45gray.png'"
+             alt=""
+             class="m-0 p-0 border-0">
+      </div>
+      <div class="m-0 p-0 border-0 d-flex flex-column">
+        <img alt="" class="m-0 p-0 border-0"
+             src="../../../assets/image/51.png">
+        <img [ngClass]="challenge.challengeStateCode+1>7 ? 'btn' : ''"
+             [src]="challenge.challengeStateCode+1>7?'../../../assets/image/52.png':'../../../assets/image/52gray.png'"
+             alt=""
+             class="m-0 p-0 border-0">
+        <img alt="" class="m-0 p-0 border-0"
+             src="../../../assets/image/53.png">
+      </div>
+      <div class="m-0 p-0 border-0 d-flex flex-column">
+        <img alt="" class="m-0 p-0 border-0"
+             src="../../../assets/image/61.png">
+        <img [ngClass]="challenge.challengeStateCode+1>8 ? 'btn' : ''"
+             [src]="challenge.challengeStateCode+1>8?'../../../assets/image/62.png':'../../../assets/image/62gray.png'"
+             alt=""
+             class="m-0 p-0 border-0">
+        <img alt="" class="m-0 p-0 border-0"
+             src="../../../assets/image/63.png">
+      </div>
+      <div class="m-0 p-0 border-0 d-flex flex-column">
+        <img [src]="challenge.challengeStateCode+1>9?'../../../assets/image/71.png':'../../../assets/image/71gray.png'"
+             alt=""
+             class="m-0 p-0 border-0">
+        <img [ngClass]="challenge.challengeStateCode+1>9 ? 'btn' : ''"
+             [src]="challenge.challengeStateCode+1>9?'../../../assets/image/72.png':'../../../assets/image/72gray.png'"
+             alt=""
+             class="m-0 p-0 border-0">
+        <img [src]="challenge.challengeStateCode+1>9?'../../../assets/image/73.png':'../../../assets/image/73gray.png'"
+             alt=""
+             class="m-0 p-0 border-0">
+      </div>
+      <div class="m-0 p-0 border-0 d-flex flex-column">
+        <img alt="" class="m-0 p-0 border-0"
+             src="../../../assets/image/81.png">
+        <img [ngClass]="challenge.challengeStateCode+1>10 ? 'btn' : ''"
+             [src]="challenge.challengeStateCode+1>=10?'../../../assets/image/82.png':'../../../assets/image/82gray.png'"
+             alt=""
+             class="m-0 p-0 border-0">
+        <img alt="" class="m-0 p-0 border-0"
+             src="../../../assets/image/83.png">
+      </div>
+      <div class="m-0 p-0 border-0 d-flex flex-column">
+        <img class="m-0 p-0 border-0"
+             src="../../../assets/image/91.png">
+        <img [ngClass]="challenge.challengeStateCode+1>10 ? 'btn' : ''" alt="" class="m-0 p-0 border-0"
+             src="../../../assets/image/92.png">
+        <img alt="" class="m-0 p-0 border-0"
+             src="../../../assets/image/93.png">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div [style.display]="showModal ? 'block' : 'none'" class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 *ngIf="challenge && challenge.title" class="modal-title">{{challenge.title}}</h4>
+        <button (click)="closeForm()" class="close" data-dismiss="modal" type="button">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <app-challenge-view *ngIf="challenge" [challenge]="challenge"></app-challenge-view>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button (click)="closeForm()" class="btn btn-danger" data-dismiss="modal" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

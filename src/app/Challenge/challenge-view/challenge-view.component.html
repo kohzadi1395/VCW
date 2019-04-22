@@ -1,44 +1,44 @@
 <div *ngIf="challenge">
-  <form>
-    <div class="form-group">
-      <label class="col-form-label" for="ChallengeTitle">Title</label>
-      <input class="form-control" formControlName="title" id="ChallengeTitle"
-             type="text" value="{{challenge.title}}">
-    </div>
-    <div class="form-group">
-      <label for="ChallengeDescription">Challenge's Description</label>
-      <textarea class="form-control" formControlName="description"
-                id="ChallengeDescription" rows="1">value="{{challenge.description}}</textarea>
-    </div>
-    <div class="form-group">
-      <label for="Deadline">Deadline for receive idea</label>
-      <input class="form-control" formControlName="deadline" id="Deadline"
-             type="date" value="{{challenge.deadline}}">
-      <label for="challengeType">challenge Type</label>
-      <input class="form-control" formControlName="challengeType" id="challengeType"
-             type="Text" value="{{challenge.challengeType ? 'Personal Challenge' : 'Company s Challenge'}}">
-      <label for="companyName">Company's Name</label>
-      <input class="form-control" formControlName="companyName" id="companyName"
-             type="text" value="{{challenge.companyName}}">
-    </div>
-    <div class="form-group border border-primary rounded">
-      <div class="row">
-        <div class="col-4">
-          <img src="../../../assets/Icon/medal_gold.png">
-          <input class="form-control" formControlName="firstBounce" id="firstBounce"
-                 type="number" value="{{challenge.firstBounce}}">
-        </div>
-        <div class="col-4">
-          <img src="../../../assets/Icon/medal_silver.png">
-          <input class="form-control" formControlName="secondBounce" id="SecondBounce"
-                 type="number" value="{{challenge.secondBounce}}">
-        </div>
-        <div class="col-4">
-          <img src="../../../assets/Icon/medal_bronze.png">
-          <input class="form-control" formControlName="thirdBounce" id="ThirdBounce"
-                 type="number" value="{{challenge.thirdBounce}}">
-        </div>
+  <div class="form-group">
+    <label class="col-form-label" for="ChallengeTitle">Title</label>
+    <input class="form-control" id="ChallengeTitle"
+           type="text" value="{{challenge.title}}">
+  </div>
+  <div class="form-group">
+    <label for="ChallengeDescription">Challenge's Description</label>
+    <textarea class="form-control"
+              id="ChallengeDescription" rows="1">value="{{challenge.description}}</textarea>
+  </div>
+  <div class="form-group">
+    <label for="Deadline">Deadline for receive idea</label>
+    <input class="form-control" id="Deadline"
+           type="date" value="{{challenge.deadline}}">
+    <label for="challengeType">challenge Type</label>
+    <input class="form-control" id="challengeType"
+           type="Text" value="{{challenge.challengeType ? 'Personal Challenge' : 'Company s Challenge'}}">
+    <label for="companyName">Company's Name</label>
+    <input class="form-control" id="companyName"
+           type="text" value="{{challenge.companyName}}">
+  </div>
+  <div class="form-group border border-primary rounded">
+    <div class="row">
+      <div class="col-4">
+        <img src="../../../assets/Icon/medal_gold.png">
+        <input class="form-control" id="firstBounce"
+               type="number" value="{{challenge.firstBounce}}">
+      </div>
+      <div class="col-4">
+        <img src="../../../assets/Icon/medal_silver.png">
+        <input class="form-control" id="SecondBounce"
+               type="number" value="{{challenge.secondBounce}}">
+      </div>
+      <div class="col-4">
+        <img src="../../../assets/Icon/medal_bronze.png">
+        <input class="form-control" id="ThirdBounce"
+               type="number" value="{{challenge.thirdBounce}}">
       </div>
     </div>
-  </form>
+  </div>
 </div>
+
+

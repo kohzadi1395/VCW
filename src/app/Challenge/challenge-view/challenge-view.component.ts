@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Challenge} from '../../shared/Track.model';
+import {Component, Input, OnInit} from '@angular/core';
+import {Challenge, GridRowData} from '../../shared/Track.model';
 
 @Component({
   selector: 'app-challenge-view',
@@ -9,21 +9,20 @@ import {Challenge} from '../../shared/Track.model';
 export class ChallengeViewComponent implements OnInit {
 
   @Input() showModal: boolean;
+  @Input() gridRowData: GridRowData;
   @Input() challenge: Challenge;
-  @Input() title: string;
-  @Input() subTitle: string;
-  @Input() cancelLabel: string;
-  @Input() positiveLabel: string;
+  form: any;
 
-  @Output() closed: EventEmitter<ModalResult> = new EventEmitter<ModalResult>();
-  @Output() loaded: EventEmitter<any> = new EventEmitter<any>();
-  @Output() positiveLabelAction = new EventEmitter();
-
+  // constructor(private transfer: TransferDataService) {
+  //   this.gridRowData = transfer.storage;
+  //   if (this.gridRowData) {
+  //     this.challenge = this.gridRowData.columnData;
+  //   }
+  // }
   constructor() {
   }
 
   ngOnInit() {
-    this.loaded.next(this);
   }
 
   show() {
@@ -32,33 +31,6 @@ export class ChallengeViewComponent implements OnInit {
 
   hide() {
     this.showModal = false;
-    this.closed.next({
-      action: ModalAction.POSITIVE
-    });
   }
 
-  positiveAction() {
-    this.positiveLabelAction.next(this);
-    return false;
-  }
-
-  cancelAction() {
-    this.showModal = false;
-    this.closed.next({
-      action: ModalAction.CANCEL
-    });
-    return false;
-  }
-
-  closeForm() {
-    this.showModal = false;
-    console.log('closeForm');
-    console.log(this.showModal);
-  }
-}
-
-export enum ModalAction { POSITIVE, CANCEL }
-
-export interface ModalResult {
-  action: ModalAction;
 }

@@ -17,7 +17,7 @@ export interface Challenge {
   thirdBounce: string;
   companyName: string;
   challengeType: boolean;
-
+  challengeStateCode: number;
 }
 
 export interface GridRowData {

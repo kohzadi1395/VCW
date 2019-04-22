@@ -31,6 +31,7 @@ import {DashboardPanelComponent} from './dashboardComponents/dashboard-panel/das
 import {SearchedPersonComponent} from './InvitePersonToChallenge/searched-peson/searched-person.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {ChallengeViewComponent} from './Challenge/challenge-view/challenge-view.component';
+import {ChallengePanelComponent} from './Challenge/challenge-panel/challenge-panel.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import {ChallengeViewComponent} from './Challenge/challenge-view/challenge-view.
     DashboardPanelComponent,
     SearchedPersonComponent,
     ChallengeViewComponent,
+    ChallengePanelComponent,
   ],
   imports: [
     ReactiveFormsModule,

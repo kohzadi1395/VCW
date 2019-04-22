@@ -1,0 +1,55 @@
+[
+  {
+    "title": "challengeStateCode",
+    "name": "challengeStateCode",
+    "sort": "asc"
+  },
+  {
+    "title": "Title",
+    "name": "title",
+    "filtering": {
+      "filterString": "",
+      "placeholder": "Filter by title"
+    }
+  },
+  {
+    "title": "Description",
+    "name": "description",
+    "sort": false,
+    "filtering": {
+      "filterString": "",
+      "placeholder": "Filter by description"
+    }
+  },
+  {
+    "title": "Deadline",
+    "name": "deadline"
+  },
+  {
+    "title": "FirstBounce ($).",
+    "name": "firstBounce",
+    "sort": "",
+    "filtering": {
+      "filterString": "",
+      "placeholder": "Filter by firstBounce."
+    }
+  },
+  {
+    "title": "SecondBounce ($).",
+    "name": "secondBounce",
+    "sort": "",
+    "filtering": {
+      "filterString": "",
+      "placeholder": "Filter by secondBounce."
+    }
+  },
+  {
+    "title": "ThirdBounce ($).",
+    "name": "thirdBounce",
+    "sort": "",
+    "filtering": {
+      "filterString": "",
+      "placeholder": "Filter by thirdBounce."
+    }
+  }
+]

@@ -11,12 +11,14 @@
                class="form-control"
                (tableChanged)="onChangeTable(config)"/>
       </div>
+
     </div>
     <br>
     <ng-table [config]="config"
               (tableChanged)="onChangeTable(config)"
               (cellClicked)="onCellClick($event)"
-              [rows]="rows" [columns]="columns">
+              [columns]="columns"
+              [rows]="rows">
     </ng-table>
     <pagination *ngIf="config.paging"
                 class="pagination-sm"
@@ -31,34 +33,5 @@
     </pagination>
     <pre *ngIf="config.paging" class="card card-block card-header">Page: {{page}} / {{numPages}}</pre>
   </div>
-  <button class="btn btn-primary d-lg-none" data-target="#myModal" data-toggle="modal" type="button">
-    Open modal
-  </button>
 
-  <!--<app-challenge-view [showModal]="isModalOpen" [challenge]="selectedChallenge">-->
-  <!--</app-challenge-view>-->
-  <div [style.display]="isModalOpen ? 'block' : 'none'" class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 *ngIf="selectedChallenge
-          && selectedChallenge.columnData
-           && selectedChallenge.columnData.title" class="modal-title">{{selectedChallenge.columnData.title}}</h4>
-          <button (click)="closeForm()" class="close" data-dismiss="modal" type="button">&times;</button>
-        </div>
-
-        <!-- Modal body -->
-        <div class="modal-body">
-          <app-challenge-view *ngIf="selectedChallenge" [challenge]="selectedChallenge.columnData"></app-challenge-view>
-        </div>
-
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button (click)="closeForm()" class="btn btn-danger" data-dismiss="modal" type="button">Close</button>
-        </div>
-
-      </div>
-    </div>
-  </div>
 </div>
