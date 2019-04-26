@@ -1,55 +1,55 @@
 [
   {
-    "title": "challengeStateCode",
-    "name": "challengeStateCode",
-    "sort": "asc"
+    "headerName": "Challenge",
+    "marryChildren": true,
+    "children": [
+      {
+        "headerName": "challengeStateCode",
+        "field": "challengeStateCode",
+        "sortable": true
+      },
+      {
+        "headerName": "Title",
+        "field": "title",
+        "sortable": true,
+        "filter": "agTextColumnFilter"
+      },
+      {
+        "headerName": "Description",
+        "field": "description",
+        "sortable": false,
+        "filter": "agTextColumnFilter"
+      },
+      {
+        "headerName": "Deadline",
+        "field": "deadline",
+        "sortable": false,
+        "filter": "agTextColumnFilter"
+      }
+    ]
   },
   {
-    "title": "Title",
-    "name": "title",
-    "filtering": {
-      "filterString": "",
-      "placeholder": "Filter by title"
-    }
-  },
-  {
-    "title": "Description",
-    "name": "description",
-    "sort": false,
-    "filtering": {
-      "filterString": "",
-      "placeholder": "Filter by description"
-    }
-  },
-  {
-    "title": "Deadline",
-    "name": "deadline"
-  },
-  {
-    "title": "FirstBounce ($).",
-    "name": "firstBounce",
-    "sort": "",
-    "filtering": {
-      "filterString": "",
-      "placeholder": "Filter by firstBounce."
-    }
-  },
-  {
-    "title": "SecondBounce ($).",
-    "name": "secondBounce",
-    "sort": "",
-    "filtering": {
-      "filterString": "",
-      "placeholder": "Filter by secondBounce."
-    }
-  },
-  {
-    "title": "ThirdBounce ($).",
-    "name": "thirdBounce",
-    "sort": "",
-    "filtering": {
-      "filterString": "",
-      "placeholder": "Filter by thirdBounce."
-    }
+    "headerName": "Bounces ($).",
+    "marryChildren": true,
+    "children": [
+      {
+        "headerName": "First Bounce ($).",
+        "field": "firstBounce",
+        "sortable": true,
+        "filter": "agNumberColumnFilter"
+      },
+      {
+        "headerName": "Second Bounce ($).",
+        "field": "secondBounce",
+        "sortable": true,
+        "filter": "agNumberColumnFilter"
+      },
+      {
+        "headerName": "Third Bounce ($).",
+        "field": "thirdBounce",
+        "sortable": true,
+        "filter": "agTextColumnFilter"
+      }
+    ]
   }
 ]

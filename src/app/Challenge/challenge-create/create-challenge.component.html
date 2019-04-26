@@ -31,19 +31,19 @@
         <div class="form-group border border-primary rounded">
           <div class="row">
             <div class="col-4">
-              <img src="../../../assets/Icon/medal_gold.png">
+              <img alt="" src="../../../assets/Icon/medal_gold.png">
               <input [ngClass]="{'error':isValid('firstBounce')}" class="form-control" formControlName="firstBounce"
                      id="firstBounce"
                      type="number">
             </div>
             <div class="col-4">
-              <img src="../../../assets/Icon/medal_silver.png">
+              <img alt="" src="../../../assets/Icon/medal_silver.png">
               <input [ngClass]="{'error':isValid('secondBounce')}" class="form-control" formControlName="secondBounce"
                      id="SecondBounce"
                      type="number">
             </div>
             <div class="col-4">
-              <img src="../../../assets/Icon/medal_bronze.png">
+              <img alt="" src="../../../assets/Icon/medal_bronze.png">
               <input [ngClass]="{'error':isValid('thirdBounce')}" class="form-control" formControlName="thirdBounce"
                      id="ThirdBounce"
                      type="number">
@@ -51,9 +51,15 @@
           </div>
         </div>
       </form>
+      <img *ngFor="let person of topPerson" alt=""
+           class="rounded-circle"
+           popover="You see, I show up on hover!" popoverTitle="Pop title"
+           src="../../../assets/image/ProfileImage/{{person.image}}"
+           triggers="mouseenter:mouseleave">
+
     </div>
     <div class="col-4 bg-light shadow  pl-2 pt-3 border border-dark">
-      <app-invite-person></app-invite-person>
+      <app-invite-person (invitedPerson)="invitedPerson($event)"></app-invite-person>
     </div>
   </div>
 </div>

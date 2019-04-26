@@ -5,7 +5,7 @@
       <div class="m-0 p-0 border-0 d-flex flex-column">
         <img alt="" class="m-0 p-0 border-0"
              src="../../../assets/image/11.png">
-        <img (click)="StepOne()" [ngClass]="challenge.challengeStateCode+1>0 ? 'btn' : ''"
+        <img (click)="StepZero()" [ngClass]="challenge.challengeStateCode+1>0 ? 'btn' : ''"
              [src]="challenge.challengeStateCode+1>0?'../../../assets/image/12.png':'../../../assets/image/12gray.png'"
              alt="" class="m-0 p-0 border-0">
         <img alt="" class="m-0 p-0 border-0"
@@ -27,11 +27,11 @@
         <img [src]="challenge.challengeStateCode+1>2?'../../../assets/image/31.png':'../../../assets/image/31gray.png'"
              alt=""
              class="m-0 p-0 border-0">
-        <img [ngClass]="challenge.challengeStateCode+1>2 ? 'btn' : ''"
+        <img (click)="StepTwoA()" [ngClass]="challenge.challengeStateCode+1>2 ? 'btn' : ''"
              [src]="challenge.challengeStateCode+1>2?'../../../assets/image/32.png':'../../../assets/image/32gray.png'"
              alt=""
              class="m-0 p-0 border-0">
-        <img [ngClass]="challenge.challengeStateCode+1>3 ? 'btn' : ''"
+        <img (click)="StepTwoB()" [ngClass]="challenge.challengeStateCode+1>3 ? 'btn' : ''"
              [src]="challenge.challengeStateCode+1>3?'../../../assets/image/33.png':'../../../assets/image/33gray.png'"
              alt=""
              class="m-0 p-0 border-0">
@@ -43,15 +43,15 @@
         <img [src]="challenge.challengeStateCode+1>4?'../../../assets/image/41.png':'../../../assets/image/41gray.png'"
              alt=""
              class="m-0 p-0 border-0">
-        <img [ngClass]="challenge.challengeStateCode+1>4 ? 'btn' : ''"
+        <img (click)="StepThreeA()" [ngClass]="challenge.challengeStateCode+1>4 ? 'btn' : ''"
              [src]="challenge.challengeStateCode+1>4?'../../../assets/image/42.png':'../../../assets/image/42gray.png'"
              alt=""
              class="m-0 p-0 border-0">
-        <img [ngClass]="challenge.challengeStateCode+1>5 ? 'btn' : ''"
+        <img (click)="StepThreeB()" [ngClass]="challenge.challengeStateCode+1>5 ? 'btn' : ''"
              [src]="challenge.challengeStateCode+1>5?'../../../assets/image/43.png':'../../../assets/image/43gray.png'"
              alt=""
              class="m-0 p-0 border-0">
-        <img [ngClass]="challenge.challengeStateCode+1>6 ? 'btn' : ''"
+        <img (click)="StepThreeC()" [ngClass]="challenge.challengeStateCode+1>6 ? 'btn' : ''"
              [src]="challenge.challengeStateCode+1>6?'../../../assets/image/44.png':'../../../assets/image/44gray.png'"
              alt=""
              class="m-0 p-0 border-0">
@@ -62,7 +62,7 @@
       <div class="m-0 p-0 border-0 d-flex flex-column">
         <img alt="" class="m-0 p-0 border-0"
              src="../../../assets/image/51.png">
-        <img [ngClass]="challenge.challengeStateCode+1>7 ? 'btn' : ''"
+        <img (click)="StepFourA()" [ngClass]="challenge.challengeStateCode+1>7 ? 'btn' : ''"
              [src]="challenge.challengeStateCode+1>7?'../../../assets/image/52.png':'../../../assets/image/52gray.png'"
              alt=""
              class="m-0 p-0 border-0">
@@ -72,7 +72,7 @@
       <div class="m-0 p-0 border-0 d-flex flex-column">
         <img alt="" class="m-0 p-0 border-0"
              src="../../../assets/image/61.png">
-        <img [ngClass]="challenge.challengeStateCode+1>8 ? 'btn' : ''"
+        <img (click)="StepFourB()" [ngClass]="challenge.challengeStateCode+1>8 ? 'btn' : ''"
              [src]="challenge.challengeStateCode+1>8?'../../../assets/image/62.png':'../../../assets/image/62gray.png'"
              alt=""
              class="m-0 p-0 border-0">
@@ -83,7 +83,7 @@
         <img [src]="challenge.challengeStateCode+1>9?'../../../assets/image/71.png':'../../../assets/image/71gray.png'"
              alt=""
              class="m-0 p-0 border-0">
-        <img [ngClass]="challenge.challengeStateCode+1>9 ? 'btn' : ''"
+        <img (click)="StepFive()" [ngClass]="challenge.challengeStateCode+1>9 ? 'btn' : ''"
              [src]="challenge.challengeStateCode+1>9?'../../../assets/image/72.png':'../../../assets/image/72gray.png'"
              alt=""
              class="m-0 p-0 border-0">
@@ -103,8 +103,10 @@
       </div>
       <div class="m-0 p-0 border-0 d-flex flex-column">
         <img class="m-0 p-0 border-0"
+             alt=""
              src="../../../assets/image/91.png">
-        <img [ngClass]="challenge.challengeStateCode+1>10 ? 'btn' : ''" alt="" class="m-0 p-0 border-0"
+        <img [ngClass]="challenge.challengeStateCode+1>10 ? 'btn' : ''"
+             alt="" class="m-0 p-0 border-0"
              src="../../../assets/image/92.png">
         <img alt="" class="m-0 p-0 border-0"
              src="../../../assets/image/93.png">
@@ -114,18 +116,28 @@
 </div>
 
 
-<div [style.display]="showModal ? 'block' : 'none'" class="modal" id="myModal">
+<div [style.display]="showModal ? 'block' : 'none'" class="modal" id="myModal" style="max-height: 90%;overflow: auto">
   <div class="modal-dialog">
     <div class="modal-content">
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 *ngIf="challenge && challenge.title" class="modal-title">{{challenge.title}}</h4>
+        <h5 *ngIf="challenge && challenge.title" class="modal-title">{{challenge.title}}</h5>
         <button (click)="closeForm()" class="close" data-dismiss="modal" type="button">&times;</button>
       </div>
 
       <!-- Modal body -->
-      <div class="modal-body">
-        <app-challenge-view *ngIf="challenge" [challenge]="challenge"></app-challenge-view>
+      <div class="modal-body pt-0" [ngSwitch]="componentMustShow">
+        <app-challenge-view [challenge]="challenge" *ngSwitchCase="'challengeView'"></app-challenge-view>
+        <app-main-challenge [challenge]="challenge" *ngSwitchCase="'mainChallenge'"></app-main-challenge>
+        <app-challenge-idea [challenge]="challenge" *ngSwitchCase="'challengeIdea'"></app-challenge-idea>
+        <app-challenge-filter [challenge]="challenge" *ngSwitchCase="'challengeFilter'"></app-challenge-filter>
+        <app-select-idea [challenge]="challenge" *ngSwitchCase="'selectIdea'"></app-select-idea>
+        <app-select-filter [challenge]="challenge" *ngSwitchCase="'selectFilter'"></app-select-filter>
+        <app-ranking-filter [challenge]="challenge" *ngSwitchCase="'rankingFilter'"></app-ranking-filter>
+        <app-value-creation-funnel [challenge]="challenge"
+                                   *ngSwitchCase="'valueCreationFunnel'"></app-value-creation-funnel>
+        <app-concept [challenge]="challenge" *ngSwitchCase="'concept'"></app-concept>
+        <app-three-m [challenge]="challenge" *ngSwitchCase="'threeM'"></app-three-m>
       </div>
 
       <!-- Modal footer -->

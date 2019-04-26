@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Challenge, GridRowData} from '../../shared/Track.model';
+import {Challenge} from '../../Models/challenge';
 import {ChallengeService} from '../../Service/challenge.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TransferDataService} from '../../Service/transfer-data.service';
+import {GridRowData} from '../../Models/gridRowData';
 
 @Component({
   selector: 'app-challenge-list',
@@ -12,27 +13,28 @@ import {TransferDataService} from '../../Service/transfer-data.service';
 
 
 export class ChallengeListComponent implements OnInit {
-  public rows: Array<any> = [];
-  public columns: Array<any> = require('../../shared/challengeColumnConfig.json');
-  public page = 1;
-  public itemsPerPage = 10;
-  public maxSize = 5;
-  public numPages = 1;
-  public length = 0;
 
-  public config: any = {
-    paging: true,
-    sorting: {columns: this.columns},
-    filtering: {filterString: ''},
-    className: ['table-striped', 'table-bordered']
-  };
-  isModalOpen = false;
   selectedChallenge: GridRowData = {
     columnNameClicked: '',
     columnData: null
   };
-
-  private data: Array<Challenge> = require('../../shared/data.json');
+  private getRowNodeId: (data) => any;
+  private rowData: ({
+    id: string,
+    title: string,
+    description: string,
+    deadline: string,
+    firstBounce: number,
+    secondBounce: number,
+    thirdBounce: number,
+    companyName: number,
+    challengeType: boolean,
+    challengeStateCode: number
+  }) [];
+  private defaultColDef: { filter: boolean; resizable: boolean; editable: boolean; sortable: boolean };
+  private gridApi: any;
+  private gridColumnApi: any;
+  private columnDefs: any;
   private readonly route: ActivatedRoute;
 
   public constructor(private challengeService: ChallengeService,
@@ -40,121 +42,62 @@ export class ChallengeListComponent implements OnInit {
                      private transferData: TransferDataService,
                      activatedRoute: ActivatedRoute) {
     this.route = activatedRoute;
+    this.columnDefs = require('../../shared/challengeColumnConfig.json');
+    this.rowData = require('../../shared/challengeData.json');
+    this.defaultColDef = {
+      editable: false,
+      sortable: true,
+      filter: true,
+      resizable: true
+    };
+    this.getRowNodeId = function (data) {
+      return data.id;
+    };
+
 
   }
 
-  public ngOnInit(): void {
-    // this.challengeService.getChallenges();
-    //
-    // this.data = this.challengeService.ChallengeList;
-    console.log(this.data);
-    this.length = this.data.length;
-    console.log(this.data.length);
-
-    this.onChangeTable(this.config);
-  }
-
-  public changePage(page: any, data: Array<any> = this.data): Array<any> {
-    const start = (page.page - 1) * page.itemsPerPage;
-    const end = page.itemsPerPage > -1 ? (start + page.itemsPerPage) : data.length;
-    return data.slice(start, end);
-  }
-
-  public changeSort(data: any, config: any): any {
-    if (!config.sorting) {
-      return data;
-    }
-
-    const columns = this.config.sorting.columns || [];
-    let columnName: string = void 0;
-    let sort: string = void 0;
-
-    for (let i = 0; i < columns.length; i++) {
-      if (columns[i].sort !== '' && columns[i].sort !== false) {
-        columnName = columns[i].name;
-        sort = columns[i].sort;
-      }
-    }
-
-    if (!columnName) {
-      return data;
-    }
-
-    // simple sorting
-    return data.sort((previous: any, current: any) => {
-      if (previous[columnName] > current[columnName]) {
-        return sort === 'desc' ? -1 : 1;
-      } else if (previous[columnName] < current[columnName]) {
-        return sort === 'asc' ? -1 : 1;
-      }
-      return 0;
-    });
-  }
-
-  public changeFilter(data: any, config: any): any {
-    let filteredData: Array<any> = data;
-    this.columns.forEach((column: any) => {
-      if (column.filtering) {
-        filteredData = filteredData.filter((item: any) => {
-          return item[column.name].match(column.filtering.filterString);
-        });
-      }
-    });
-
-    if (!config.filtering) {
-      return filteredData;
-    }
-
-    if (config.filtering.columnName) {
-      return filteredData.filter((item: any) =>
-        item[config.filtering.columnName].match(this.config.filtering.filterString));
-    }
-
-    const tempArray: Array<any> = [];
-    filteredData.forEach((item: any) => {
-      let flag = false;
-      this.columns.forEach((column: any) => {
-        if (item[column.name].toString().match(this.config.filtering.filterString)) {
-          flag = true;
-        }
-      });
-      if (flag) {
-        tempArray.push(item);
-      }
-    });
-    filteredData = tempArray;
-
-    return filteredData;
-  }
-
-  public onChangeTable(config: any, page: any = {page: this.page, itemsPerPage: this.itemsPerPage}): any {
-    if (config.filtering) {
-      Object.assign(this.config.filtering, config.filtering);
-    }
-
-    if (config.sorting) {
-      Object.assign(this.config.sorting, config.sorting);
-    }
-
-    const filteredData = this.changeFilter(this.data, this.config);
-    const sortedData = this.changeSort(filteredData, this.config);
-    this.rows = page && config.paging ? this.changePage(page, sortedData) : sortedData;
-    this.length = sortedData.length;
+  ngOnInit(): void {
   }
 
   public onCellClick(data: any): any {
     this.selectedChallenge.columnNameClicked = data.column;
     this.selectedChallenge.columnData = data.row;
-    this.isModalOpen = true;
     console.log(this.selectedChallenge);
     this.transferData.storage = this.selectedChallenge;
-    console.log(this.route);
     this.router.navigate(['panelChallenge'], {relativeTo: this.route});
   }
 
-  closeForm() {
-    this.isModalOpen = false;
+  onGridReady(params: any) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+    // this.autoSizeAll();
+    this.sizeToFit();
+  }
 
+  autoSizeAll() {
+    const allColumnIds = [];
+    this.gridColumnApi.getAllColumns().forEach(function (column) {
+      allColumnIds.push(column.colId);
+    });
+    this.gridColumnApi.autoSizeColumns(allColumnIds);
+  }
+
+  sizeToFit() {
+    this.gridApi.sizeColumnsToFit();
+  }
+
+  onSelectionChanged($event: any) {
+    // this.selectedChallenge.columnNameClicked = data.column;
+    // this.selectedChallenge.columnData = data.row;
+    // console.log(this.selectedChallenge);
+
+    const selectedRows: Challenge[] = this.gridApi.getSelectedRows();
+    this.transferData.storage = selectedRows[0];
+    this.router.navigate(['panelChallenge'], {relativeTo: this.route});
+
+    console.log(selectedRows);
+    // document.querySelector('#selectedRows').innerHTML = selectedRowsString;
 
   }
 }

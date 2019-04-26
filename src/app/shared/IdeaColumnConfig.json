@@ -1,0 +1,9 @@
+[
+  {
+    "headerName": "Idea Description",
+    "field": "ideaDescription",
+    "sortable": true,
+    "filter": "agTextColumnFilter"
+  }
+]
+

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import {AuthService} from '../Service/auth.service';
-import {Challenge} from "../shared/Track.model";
+import {Challenge} from "../Models/challenge";
 
 @Component({
   selector: 'app-menu',

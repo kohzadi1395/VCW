@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-searched-peron',
@@ -7,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class SearchedPersonComponent implements OnInit {
 
-
+  @Output() addPerson = new EventEmitter();
   private person = {
     firstName: '',
     lastName: '',
@@ -31,4 +31,7 @@ export class SearchedPersonComponent implements OnInit {
   ngOnInit() {
   }
 
+  selectPerson() {
+    this.addPerson.emit(this.Person);
+  }
 }

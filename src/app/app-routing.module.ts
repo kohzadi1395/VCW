@@ -8,22 +8,22 @@ import {DashboardPanelComponent} from './dashboardComponents/dashboard-panel/das
 import {ChallengeListComponent} from './Challenge/challenge-list/challenge-list.component';
 import {ChallengeViewComponent} from './Challenge/challenge-view/challenge-view.component';
 import {ChallengePanelComponent} from './Challenge/challenge-panel/challenge-panel.component';
+import {OnlyForTestComponent} from './ONlyForTest/only-for-test/only-for-test.component';
 
 const routes = [
   // {
   // path: '',
   // component: CreateChallengeComponent
 // },
-//   {
-//     path: '',
-//     component: InvitePersonComponent
-//   },
   {
     path: '',
-    redirectTo: '/Default',
-    pathMatch: 'full'
+    component: OnlyForTestComponent
   },
-
+//   {
+//     path: '',
+//     redirectTo: '/Default',
+//     pathMatch: 'full'
+//   },
   {
     path: 'Default',
     component: DefaultComponent,
@@ -38,7 +38,7 @@ const routes = [
   },
   {
     path: 'component-one/:id',
-    component: HomeComponent, canActivate: [LoginPageComponent]
+    component: HomeComponent,
   },
   // {
   //   path: 'messages/:name',
@@ -54,7 +54,14 @@ const routes = [
       },
       {
         path: 'allChallenge',
-        component: ChallengeListComponent
+        component: ChallengeListComponent,
+        children: [
+          {
+            path: 'panelChallenge',
+            component: ChallengePanelComponent,
+            pathMatch: 'full'
+          }
+        ]
       },
       {
         path: 'viewChallenge',

@@ -1,0 +1,21 @@
+[
+  {
+    "headerName": "Challenge",
+    "marryChildren": true,
+    "children": [
+      {
+        "headerName": "File Name",
+        "field": "fileName",
+        "sortable": true,
+        "filter": "agTextColumnFilter"
+      },
+      {
+        "headerName": "Documents",
+        "field": "docType",
+        "sortable": true,
+        "filter": "agTextColumnFilter"
+      }
+    ]
+  }
+]
+

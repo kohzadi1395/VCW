@@ -35,6 +35,7 @@
 <!--<div class="d-flex flex-column" cdkDropList [cdkDropListData]="invitePersonService.result"-->
 <!--(cdkDropListDropped)="onTrackDrop($event)" cdkDropListOrientation="horizontal">-->
 <div>
-  <app-searched-peron [Person]="person" *ngFor="let person of invitePersonService.result">
+  <app-searched-peron [Person]="person" *ngFor="let person of invitePersonService.result"
+                      (addPerson)="AddPersonList($event)">
   </app-searched-peron>
 </div>

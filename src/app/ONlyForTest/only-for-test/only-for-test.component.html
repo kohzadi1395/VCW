@@ -1,0 +1,25 @@
+<div style="height: 100%; padding-top: 35px; box-sizing: border-box;">
+  <ag-grid-angular
+    #topGrid
+    (gridReady)="onGridReady($event)"
+    [animateRows]="true"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [getRowNodeId]="getRowNodeId"
+    [gridOptions]="topOptions"
+    [rowData]="rowData"
+    class="ag-theme-balham"
+    id="myGrid"
+    style="width: 500px; height: 500px;"
+  ></ag-grid-angular>
+
+
+</div>
+
+<div style="position: absolute; top: 0px; left: 0px;">
+  <button (click)="setPriceOnToyota()">Set Price on Toyota</button>
+  <button (click)="setDataOnFord()">Set Data on Ford</button> &nbsp; &nbsp; &nbsp;
+  <button (click)="updateSort()">Sort</button>
+  <button (click)="updateFilter()">Filter</button>
+  <button (click)="Addrow()">Add Row</button>
+</div>

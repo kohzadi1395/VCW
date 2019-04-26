@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Challenge, GridRowData} from '../../shared/Track.model';
+import {Challenge} from '../../Models/challenge';
+import {GridRowData} from '../../Models/gridRowData';
 
 @Component({
   selector: 'app-challenge-view',
@@ -8,29 +9,12 @@ import {Challenge, GridRowData} from '../../shared/Track.model';
 })
 export class ChallengeViewComponent implements OnInit {
 
-  @Input() showModal: boolean;
   @Input() gridRowData: GridRowData;
   @Input() challenge: Challenge;
-  form: any;
 
-  // constructor(private transfer: TransferDataService) {
-  //   this.gridRowData = transfer.storage;
-  //   if (this.gridRowData) {
-  //     this.challenge = this.gridRowData.columnData;
-  //   }
-  // }
   constructor() {
   }
 
   ngOnInit() {
   }
-
-  show() {
-    this.showModal = true;
-  }
-
-  hide() {
-    this.showModal = false;
-  }
-
 }

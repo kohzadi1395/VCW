@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Challenge} from '../../shared/Track.model';
+import {Person} from '../../Models/person';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {EmailValidation} from '../../../Utilities/UtilityStringFunc';
+import {Challenge} from '../../Models/challenge';
 
 @Component({
   selector: 'app-create-challenge',
@@ -13,6 +14,8 @@ export class CreateChallengeComponent implements OnInit {
 
   challenge: Challenge;
   private form: FormGroup;
+  private selectedPersons: Person[] = [];
+  private topPerson: Person[];
 
   constructor(private  fb: FormBuilder,
               private http: HttpClient) {
@@ -37,5 +40,14 @@ export class CreateChallengeComponent implements OnInit {
 
   onSubmit() {
 
+  }
+
+  invitedPerson($event: Person) {
+    const person = $event;
+    const index = this.selectedPersons.findIndex(x => x.id === person.id);
+    if (index === -1) {
+      this.selectedPersons.push(person);
+    }
+    this.topPerson = this.selectedPersons.slice(Math.max(this.selectedPersons.length - 10, 0));
   }
 }

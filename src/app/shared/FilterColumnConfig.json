@@ -1,0 +1,9 @@
+[
+  {
+    "headerName": "Filter Description",
+    "field": "filterDescription",
+    "sortable": true,
+    "filter": "agTextColumnFilter"
+  }
+]
+

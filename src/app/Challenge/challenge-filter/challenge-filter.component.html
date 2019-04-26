@@ -1,0 +1,32 @@
+<div *ngIf="challenge" class="row h-100">
+  <div class="col-12">
+    <div class="row">
+      <div class="form-group col-11 m-0 p-1">
+        <label for="FilterDescription">Filter Description</label>
+        <textarea [(ngModel)]="Filter.filterDescription"
+                  class="form-control" id="FilterDescription"
+                  rows="3"></textarea>
+      </div>
+      <div class="my-auto mx-auto">
+        <button (click)="addFile()" class="form-control btn btn-primary rounded-circle">
+          <span class="fas fa-plus text-white"></span></button>
+      </div>
+
+    </div>
+    <div class="row">
+      <ag-grid-angular
+        (gridReady)="onGridReady($event)"
+        (selectionChanged)="onSelectionChanged($event)"
+        [animateRows]="true"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        [getRowNodeId]="getRowNodeId"
+        [rowData]="rowData"
+        [rowSelection]="'single'"
+        class="ag-theme-balham w-100"
+        id="myGrid"
+        style="height: 200px;"
+      ></ag-grid-angular>
+    </div>
+  </div>
+</div>

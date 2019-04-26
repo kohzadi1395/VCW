@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Subject} from 'rxjs/Rx';
-import {Person} from '../shared/Track.model';
+import {Person} from '../Models/person';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class InvitePersonService {
   constructor(private http: HttpClient) {
   }
 
-  searchPeron(updatedReservation) {
+  searchPerson(updatedReservation) {
     const objectToSend = JSON.stringify(updatedReservation);
 
     const httpOptions = {

@@ -14,7 +14,6 @@ import {CreateChallengeComponent} from './Challenge/challenge-create/create-chal
 import {BarChartComponent} from './Chart/bar-chart/bar-chart.component';
 import {PieChartComponent} from './Chart/pie-chart/pie-chart.component';
 import {ChallengeListComponent} from './Challenge/challenge-list/challenge-list.component';
-import {Ng2TableModule} from 'ng2-table/ng2-table';
 import {PaginationModule} from 'ng2-bootstrap/pagination';
 import {TabsModule} from 'ng2-bootstrap';
 import {LoginPanelComponent} from './MainPage/Login/login-panel/login-panel.component';
@@ -25,13 +24,26 @@ import {HttpClientModule} from '@angular/common/http';
 import {DefaultComponent} from './MainPage/default/default.component';
 import {FileUploadModule} from 'ng2-file-upload';
 import {InvitePersonComponent} from './InvitePersonToChallenge/invite-person/invite-person.component';
-import {SuiModule} from 'ng2-semantic-ui';
 import {TagComponent} from './tag/tag.component';
 import {DashboardPanelComponent} from './dashboardComponents/dashboard-panel/dashboard-panel.component';
 import {SearchedPersonComponent} from './InvitePersonToChallenge/searched-peson/searched-person.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {ChallengeViewComponent} from './Challenge/challenge-view/challenge-view.component';
 import {ChallengePanelComponent} from './Challenge/challenge-panel/challenge-panel.component';
+import {ChallengeFilterComponent} from './Challenge/challenge-filter/challenge-filter.component';
+import {ChallengeIdeaComponent} from './Challenge/challenge-idea/challenge-idea.component';
+import {SelectIdeaComponent} from './Challenge/select-idea/select-idea.component';
+import {SelectFilterComponent} from './Challenge/select-filter/select-filter.component';
+import {RankingFilterComponent} from './Challenge/ranking-filter/ranking-filter.component';
+import {ValueCreationFunnelComponent} from './Challenge/value-creation-funnel/value-creation-funnel.component';
+import {ConceptComponent} from './Challenge/concept/concept.component';
+import {ThreeMComponent} from './Challenge/three-m/three-m.component';
+import {MainChallengeComponent} from './Challenge/main-challenge/main-challenge.component';
+import {AgGridModule} from 'ag-grid-angular';
+import {OnlyForTestComponent} from './ONlyForTest/only-for-test/only-for-test.component';
+import {EditRemoveButtonComponent} from './edit-remove-button/edit-remove-button.component';
+import {ChildMessageRendererComponent} from './ONlyForTest/child-message-renderer/child-message-renderer.component';
+import {CurrencyRendererComponent} from './ONlyForTest/currency-renderer/currency-renderer.component';
 
 @NgModule({
   declarations: [
@@ -55,8 +67,22 @@ import {ChallengePanelComponent} from './Challenge/challenge-panel/challenge-pan
     SearchedPersonComponent,
     ChallengeViewComponent,
     ChallengePanelComponent,
+    ChallengeFilterComponent,
+    ChallengeIdeaComponent,
+    SelectIdeaComponent,
+    SelectFilterComponent,
+    RankingFilterComponent,
+    ValueCreationFunnelComponent,
+    ConceptComponent,
+    ThreeMComponent,
+    MainChallengeComponent,
+    OnlyForTestComponent,
+    EditRemoveButtonComponent,
+    ChildMessageRendererComponent,
+    CurrencyRendererComponent,
   ],
   imports: [
+    AgGridModule.withComponents([]),
     ReactiveFormsModule,
     DragDropModule,
     BrowserModule,
@@ -64,15 +90,15 @@ import {ChallengePanelComponent} from './Challenge/challenge-panel/challenge-pan
     FormsModule,
     ChartsModule,
     AngularFontAwesomeModule,
-    Ng2TableModule,
     PaginationModule,
     TabsModule,
     PaginationModule.forRoot(),
     // RouterModule.forRoot(routes),
-    HttpClientModule ,
+    HttpClientModule,
     FileUploadModule,
-    SuiModule,
     MatAutocompleteModule,
+    AgGridModule.withComponents([ChildMessageRendererComponent,
+      CurrencyRendererComponent])
   ],
   providers: [],
   bootstrap: [AppComponent]
