@@ -30,7 +30,11 @@ export class ChallengeIdeaComponent implements OnInit {
     this.getRowNodeId = function (data) {
       return data.id;
     };
-    this.Idea = {ideaDescription: ''};
+    this.Idea = {
+      ideaDescription: '',
+      ideaTitle: '',
+      id: ''
+    };
   }
 
   ngOnInit() {

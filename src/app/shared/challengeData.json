@@ -2,7 +2,7 @@
   {
     "id": "cecd780c-8626-5601-7bc9-0a368be3c6e3",
     "title": "Inside the SQL Server Query Optimize",
-    "description": "Running SQL Server on a virtual machine will be slower than running natively because of the overhead of virtualization.",
+    "description": "Running SQL Server on a virtual \nmachine will be slower than running natively because of the overhead of virtualization.",
     "deadline": "2018-12-19",
     "firstBounce": "8973.20",
     "secondBounce": "4337.08",
@@ -14,7 +14,7 @@
   {
     "id": "e33969a0-b921-4603-6221-1f12254da39f",
     "title": "SQL Server Statistic",
-    "description": "Installation of SQL Server is supported on x64 processors only. It is no longer supported on x86 processors.",
+    "description": "Installation of SQL Server is supported on x64 \nprocessors only. It is no longer supported on x86 processors.",
     "deadline": "2012-12-09",
     "firstBounce": "5780.46",
     "secondBounce": "4710.17",

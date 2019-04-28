@@ -1,5 +1,17 @@
 [
   {
+    "headerName": "Id",
+    "field": "id",
+    "sortable": true,
+    "filter": "agTextColumnFilter"
+  },
+  {
+    "headerName": "Filter Title",
+    "field": "filterTitle",
+    "sortable": true,
+    "filter": "agTextColumnFilter"
+  },
+  {
     "headerName": "Filter Description",
     "field": "filterDescription",
     "sortable": true,

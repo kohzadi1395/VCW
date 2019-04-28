@@ -1,8 +1,149 @@
 <div class="row">
-  <div class="col-12">
+  <div class="col-6">
+    <p>Idea</p>
+    <div #IdeaList="cdkDropList" (cdkDropListDropped)="drop($event)"
+         [cdkDropListConnectedTo]="[KillList,KeepList,ReviewList,MultiplyList]" [cdkDropListData]="ideas"
+         cdkDropList class="border border-dark rounded  accordion w-100"
+         id="accordionIdea" style="min-height: 200px">
+      <!--<div *ngFor="let artist of ideas" class="pop" cdkDrag>{{artist.ideaTitle}}</div>-->
+      <div *ngFor="let idea of ideas" cdkDrag class="card pop">
+        <div class="card-header" id="headingIdea">
+          <h2 class="mb-0">
+            <button [attr.data-target]="'#collapse-'+idea.id" aria-controls="collapseIdea" aria-expanded="true"
+                    class="btn btn-link"
+                    data-toggle="collapse" type="button">
+              {{idea.ideaTitle}}
+            </button>
+          </h2>
+        </div>
 
-    <div class="row">
-      <div class="col-12 overflow-auto"></div>
+        <div [attr.id]="'collapse-'+idea.id" aria-labelledby="headingIdea" class="collapse"
+             data-parent="#accordionIdea">
+          <div class="card-body">
+            {{idea.ideaDescription}}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="col-6">
+    <div class="row">
+      <div class="col-6">
+        <div>
+          <p>Kill</p>
+          <div #KillList="cdkDropList" (cdkDropListDropped)="drop($event)"
+               [cdkDropListConnectedTo]="[IdeaList,KeepList,ReviewList,MultiplyList]"
+               [cdkDropListData]="KillIdeas"
+               cdkDropList class="border border-dark rounded  accordion w-100"
+               id="accordionKill" style="min-height: 200px">
+            <div *ngFor="let idea of KillIdeas" cdkDrag class="card pop">
+              <div class="card-header" id="headingKill">
+                <h2 class="mb-0">
+                  <button [attr.data-target]="'#collapse-'+idea.id" aria-controls="collapseKill" aria-expanded="true"
+                          class="btn btn-link"
+                          data-toggle="collapse" type="button">
+                    {{idea.ideaTitle}}
+                  </button>
+                </h2>
+              </div>
+
+              <div [attr.id]="'collapse-'+idea.id" aria-labelledby="headingKill" class="collapse"
+                   data-parent="#accordionKill">
+                <div class="card-body">
+                  {{idea.ideaDescription}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p>Keep</p>
+          <div #KeepList="cdkDropList" (cdkDropListDropped)="drop($event)"
+               [cdkDropListConnectedTo]="[IdeaList,KillList,ReviewList,MultiplyList]"
+               [cdkDropListData]="KeepIdeas"
+               cdkDropList class="border border-dark rounded  accordion w-100"
+               id="accordionKeep" style="min-height: 200px">
+            <div *ngFor="let idea of KeepIdeas" cdkDrag class="card pop">
+              <div class="card-header" id="headingKeep">
+                <h2 class="mb-0">
+                  <button [attr.data-target]="'#collapse-'+idea.id" aria-controls="collapseKeep" aria-expanded="true"
+                          class="btn btn-link"
+                          data-toggle="collapse" type="button">
+                    {{idea.ideaTitle}}
+                  </button>
+                </h2>
+              </div>
+
+              <div [attr.id]="'collapse-'+idea.id" aria-labelledby="headingKeep" class="collapse"
+                   data-parent="#accordionKeep">
+                <div class="card-body">
+                  {{idea.ideaDescription}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div>
+          <p>Review</p>
+          <div #ReviewList="cdkDropList" (cdkDropListDropped)="drop($event)"
+               [cdkDropListConnectedTo]="[IdeaList,KeepList,KillList,MultiplyList]"
+               [cdkDropListData]="ReviewIdeas"
+               cdkDropList class="border border-dark rounded accordion w-100"
+               id="accordionReview" style="min-height: 200px">
+            <div *ngFor="let idea of ReviewIdeas" cdkDrag class="card pop">
+              <div class="card-header" id="headingReview">
+                <h2 class="mb-0">
+                  <button [attr.data-target]="'#collapse-'+idea.id" aria-controls="collapseReview" aria-expanded="true"
+                          class="btn btn-link"
+                          data-toggle="collapse" type="button">
+                    {{idea.ideaTitle}}
+                  </button>
+                </h2>
+              </div>
+
+              <div [attr.id]="'collapse-'+idea.id" aria-labelledby="headingReview" class="collapse"
+                   data-parent="#accordionReview">
+                <div class="card-body">
+                  {{idea.ideaDescription}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p>Multiply</p>
+          <div #MultiplyList="cdkDropList" (cdkDropListDropped)="drop($event)"
+               [cdkDropListConnectedTo]="[IdeaList,KeepList,KillList,ReviewList]"
+               [cdkDropListData]="MultiplyIdeas"
+               cdkDropList class="border border-dark rounded  accordion w-100"
+               id="accordionMultiply" style="min-height: 200px">
+            <div *ngFor="let idea of MultiplyIdeas" cdkDrag class="card pop">
+              <div class="card-header" id="headingMultiply">
+                <h2 class="mb-0">
+                  <button [attr.data-target]="'#collapse-'+idea.id" aria-controls="collapseMultiply"
+                          aria-expanded="true"
+                          class="btn btn-link"
+                          data-toggle="collapse" type="button">
+                    {{idea.ideaTitle}}
+                  </button>
+                </h2>
+              </div>
+
+              <div [attr.id]="'collapse-'+idea.id" aria-labelledby="headingMultiply" class="collapse"
+                   data-parent="#accordionMultiply">
+                <div class="card-body">
+                  {{idea.ideaDescription}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
+
+

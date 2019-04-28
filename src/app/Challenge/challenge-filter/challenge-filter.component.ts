@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Challenge} from '../../Models/challenge';
 import {Filter} from '../../Models/filter';
 import {GridRowData} from '../../Models/gridRowData';
+import {NewGuid} from '../../../Utilities/UtilityStringFunc';
 
 @Component({
   selector: 'app-challenge-filter',
@@ -14,7 +15,7 @@ export class ChallengeFilterComponent implements OnInit {
   columnDefs: [];
   defaultColDef: any;
   private readonly rowData: Array<Filter> = [];
-  private readonly Filter: Filter;
+  private Filter: Filter;
   private gridColumnApi: any;
   private gridApi: any;
   private getRowNodeId: (data) => any;
@@ -30,7 +31,11 @@ export class ChallengeFilterComponent implements OnInit {
     this.getRowNodeId = function (data) {
       return data.id;
     };
-    this.Filter = {filterDescription: ''};
+    this.Filter = {
+      filterDescription: '',
+      filterTitle: '',
+      id: ''
+    };
   }
 
   ngOnInit() {
@@ -39,9 +44,15 @@ export class ChallengeFilterComponent implements OnInit {
   public addFile() {
     console.log(this.Filter);
     if (this.Filter) {
+      this.Filter.id = NewGuid();
       this.rowData.push(Object.assign({}, this.Filter));
       this.gridApi.setRowData(this.rowData);
-      this.Filter.filterDescription = '';
+      this.Filter = {
+        filterDescription: '',
+        filterTitle: '',
+        id: ''
+      };
+      console.log(this.Filter);
     }
   }
 
