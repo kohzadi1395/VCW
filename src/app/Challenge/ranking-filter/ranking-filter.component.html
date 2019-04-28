@@ -1,8 +1,10 @@
 <div class="row">
   <div class="col-12">
     <p class="m-0 p-0 text-center font-weight-bold">Filter</p>
-    <div (cdkDropDropped)="dropped($event)"
-         cdkDrop class="border border-dark  accordion w-100" id="accordionFilter" style="min-height: 200px">
+    <div (cdkDropListDropped)="dropped($event)"
+         [cdkDropListData]="selectedfilters"
+         cdkDropList
+         class="border border-dark  accordion w-100" id="accordionFilter" style="min-height: 200px">
       <div *ngFor="let filter of selectedfilters" cdkDrag class="card pop">
         <div class="card-header" id="headingFilter">
           <h2 class="mb-0 p-0 text-center">
