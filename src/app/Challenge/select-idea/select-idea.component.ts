@@ -27,10 +27,8 @@ export class SelectIdeaComponent implements OnInit {
     this.MultiplyIdeas = [];
   }
 
-
   ngOnInit() {
   }
-
 
   drop(event: CdkDragDrop<Idea[]>) {
     console.log(event);
@@ -42,13 +40,4 @@ export class SelectIdeaComponent implements OnInit {
 
     }
   }
-
-  // dropped(event: CdkDragDrop<Idea[]>) {
-  //   console.log(event);
-  //   moveItemInArray(
-  //     this.ideas,
-  //     event.previousIndex,
-  //     event.currentIndex
-  //   );
-  // }
 }

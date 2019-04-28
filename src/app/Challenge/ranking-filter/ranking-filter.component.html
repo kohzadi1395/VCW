@@ -1,3 +1,26 @@
-<p>
-  ranking-filter works!
-</p>
+<div class="row">
+  <div class="col-12">
+    <p class="m-0 p-0 text-center font-weight-bold">Filter</p>
+    <div (cdkDropDropped)="dropped($event)"
+         cdkDrop class="border border-dark  accordion w-100" id="accordionFilter" style="min-height: 200px">
+      <div *ngFor="let filter of selectedfilters" cdkDrag class="card pop">
+        <div class="card-header" id="headingFilter">
+          <h2 class="mb-0 p-0 text-center">
+            <button [attr.data-target]="'#collapse-'+filter.id" aria-controls="collapseFilter" aria-expanded="true"
+                    class="btn btn-link p-0 m-0"
+                    data-toggle="collapse" type="button">
+              {{filter.filterTitle}}
+            </button>
+          </h2>
+        </div>
+
+        <div [attr.id]="'collapse-'+filter.id" aria-labelledby="headingFilter" class="collapse"
+             data-parent="#accordionFilter">
+          <div class="card-body">
+            {{filter.filterDescription}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

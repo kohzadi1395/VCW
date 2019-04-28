@@ -1,3 +1,156 @@
-<p>
-  select-filter works!
-</p>
+<div class="row">
+  <div class="col-6">
+    <p class="m-0 p-0 text-center font-weight-bold">Filter</p>
+    <div #FilterList="cdkDropList" (cdkDropListDropped)="drop($event)"
+         [cdkDropListConnectedTo]="[KillList,KeepList,ReviewList,MultiplyList]" [cdkDropListData]="filters"
+         cdkDropList class="border border-dark  accordion w-100"
+         id="accordionFilter" style="min-height: 200px">
+      <div *ngFor="let filter of filters" cdkDrag class="card pop">
+        <div class="card-header" id="headingFilter">
+          <h2 class="mb-0 p-0 text-center">
+            <button [attr.data-target]="'#collapse-'+filter.id" aria-controls="collapseFilter" aria-expanded="true"
+                    class="btn btn-link p-0 m-0"
+                    data-toggle="collapse" type="button">
+              {{filter.filterTitle}}
+            </button>
+          </h2>
+        </div>
+
+        <div [attr.id]="'collapse-'+filter.id" aria-labelledby="headingFilter" class="collapse"
+             data-parent="#accordionFilter">
+          <div class="card-body">
+            {{filter.filterDescription}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6" style="border-radius: 1.25rem">
+    <div class="row" style="background-color: #6cc974;border-radius: 1.25rem">
+      <div class="col-6">
+        <div class="mt-2">
+          <p class="m-0 p-0 text-center font-weight-bold"><img alt="loading..." src="../../../assets/image/gish.png"
+                                                               style="width: 31px;height: 31px;margin-right: 12px;"/>Kill
+          </p>
+          <div #KillList="cdkDropList" (cdkDropListDropped)="drop($event)"
+               [cdkDropListConnectedTo]="[FilterList,KeepList,ReviewList,MultiplyList]"
+               [cdkDropListData]="KillFilters"
+               cdkDropList class="border border-dark accordion w-100"
+               id="accordionKill" style="min-height: 200px;border-radius: 1.25rem">
+            <div *ngFor="let filter of KillFilters" cdkDrag class="card pop">
+              <div class="card-header" id="headingKill">
+                <h2 class="mb-0 p-0 text-center">
+                  <button [attr.data-target]="'#collapse-'+filter.id" aria-controls="collapseKill" aria-expanded="true"
+                          class="btn btn-link p-0 m-0"
+                          data-toggle="collapse" type="button">
+                    {{filter.filterTitle}}
+                  </button>
+                </h2>
+              </div>
+
+              <div [attr.id]="'collapse-'+filter.id" aria-labelledby="headingKill" class="collapse"
+                   data-parent="#accordionKill">
+                <div class="card-body">
+                  {{filter.filterDescription}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-2">
+          <p class="m-0 p-0 text-center font-weight-bold"><img alt="loading..." src="../../../assets/image/del.png"
+                                                               style="width: 31px;height: 31px;margin-right: 12px;"/>Keep
+          </p>
+          <div #KeepList="cdkDropList" (cdkDropListDropped)="drop($event)"
+               [cdkDropListConnectedTo]="[FilterList,KillList,ReviewList,MultiplyList]"
+               [cdkDropListData]="KeepFilters"
+               cdkDropList class="border border-danger accordion w-100"
+               id="accordionKeep" style="min-height: 200px;border-radius: 1.25rem">
+            <div *ngFor="let filter of KeepFilters" cdkDrag class="card pop">
+              <div class="card-header" id="headingKeep">
+                <h2 class="mb-0 p-0 text-center">
+                  <button [attr.data-target]="'#collapse-'+filter.id" aria-controls="collapseKeep" aria-expanded="true"
+                          class="btn btn-link p-0 m-0"
+                          data-toggle="collapse" type="button">
+                    {{filter.filterTitle}}
+                  </button>
+                </h2>
+              </div>
+
+              <div [attr.id]="'collapse-'+filter.id" aria-labelledby="headingKeep" class="collapse"
+                   data-parent="#accordionKeep">
+                <div class="card-body">
+                  {{filter.filterDescription}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="mt-2">
+          <p class="m-0 p-0 text-center font-weight-bold"><img alt="loading..." src="../../../assets/image/pick.png"
+                                                               style="width: 31px;height: 31px;margin-right: 12px;"/>Review
+          </p>
+          <div #ReviewList="cdkDropList" (cdkDropListDropped)="drop($event)"
+               [cdkDropListConnectedTo]="[FilterList,KeepList,KillList,MultiplyList]"
+               [cdkDropListData]="ReviewFilters"
+               cdkDropList class="border border-dark accordion w-100"
+               id="accordionReview" style="min-height: 200px;border-radius: 1.25rem">
+            <div *ngFor="let filter of ReviewFilters" cdkDrag class="card pop">
+              <div class="card-header" id="headingReview">
+                <h2 class="mb-0 p-0 text-center">
+                  <button [attr.data-target]="'#collapse-'+filter.id" aria-controls="collapseReview"
+                          aria-expanded="true"
+                          class="btn btn-link p-0 m-0"
+                          data-toggle="collapse" type="button">
+                    {{filter.filterTitle}}
+                  </button>
+                </h2>
+              </div>
+
+              <div [attr.id]="'collapse-'+filter.id" aria-labelledby="headingReview" class="collapse"
+                   data-parent="#accordionReview">
+                <div class="card-body">
+                  {{filter.filterDescription}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-2">
+          <p class="m-0 p-0 text-center font-weight-bold"><img alt="loading..." src="../../../assets/image/khesh.png"
+                                                               style="width: 31px;height: 31px;margin-right: 12px;"/>Multiply
+          </p>
+          <div #MultiplyList="cdkDropList" (cdkDropListDropped)="drop($event)"
+               [cdkDropListConnectedTo]="[FilterList,KeepList,KillList,ReviewList]"
+               [cdkDropListData]="MultiplyFilters"
+               cdkDropList class="border border-danger  accordion w-100"
+               id="accordionMultiply" style="min-height: 200px;border-radius: 1.25rem">
+            <div *ngFor="let filter of MultiplyFilters" cdkDrag class="card pop">
+              <div class="card-header" id="headingMultiply">
+                <h2 class="mb-0 p-0 text-center">
+                  <button [attr.data-target]="'#collapse-'+filter.id" aria-controls="collapseMultiply"
+                          aria-expanded="true"
+                          class="btn btn-link p-0 m-0"
+                          data-toggle="collapse" type="button">
+                    {{filter.filterTitle}}
+                  </button>
+                </h2>
+              </div>
+
+              <div [attr.id]="'collapse-'+filter.id" aria-labelledby="headingMultiply" class="collapse"
+                   data-parent="#accordionMultiply">
+                <div class="card-body">
+                  {{filter.filterDescription}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

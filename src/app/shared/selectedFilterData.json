@@ -23,30 +23,5 @@
     "id": "02d00dc2-9ee2-ff41-9543-3e504538564c",
     "filterTitle": "SQL Server Appearance",
     "filterDescription": "SQL Server failover cluster installation supports Local Disk only for installing the tempdb files. Ensure that the path specified for the tempdb data and log files is valid on all the cluster nodes. During failover, if the tempdb directories are not available on the failover target node, the SQL Server resource will fail to come online."
-  },
-  {
-    "id": "0bbf92a0-fa10-dfd0-65d6-423496f0cdc4",
-    "filterTitle": "SQL Server User Friendly",
-    "filterDescription": "manifestum quo, pars volcans nomen brevens, linguens parte sed quartu venit. in in et cognitio, parte"
-  },
-  {
-    "id": "1b01187e-6ba9-8531-35dd-680d10a1657e",
-    "filterTitle": "Inside the SQL Server Query Optimize",
-    "filterDescription": "eggredior. eggredior. Et et lingue transit. regit, novum fecundio, non"
-  },
-  {
-    "id": "9d45efe8-d1c6-65b8-b8f2-6d3fdd30c0e9",
-    "filterTitle": "SQL Server Team-based Development",
-    "filterDescription": "sed non habitatio funem. gravis si non quis quis imaginator linguens estum. vantis. Multum gravis et"
-  },
-  {
-    "id": "62737632-b99a-5f92-e276-a435a7a5dd23",
-    "filterTitle": "SQL Server UI/UX",
-    "filterDescription": "in imaginator funem. travissimantor gravis trepicandor esset nomen gravis quad linguens volcans quo,"
-  },
-  {
-    "id": "acfa58e1-25ab-2720-e38c-dcd3d5076b48",
-    "filterTitle": "You Can Change It Hardly",
-    "filterDescription": "Et gravis ut novum vobis si esset regit, si trepicandor novum pars quartu bono e Longam, fecit. quad"
   }
 ]
