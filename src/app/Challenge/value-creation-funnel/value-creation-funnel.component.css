@@ -1,0 +1,13 @@
+.bg-funnel {
+  background-image: url('../../../assets/image/funnel.png');
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: contain;
+  min-height: 500px
+}
+
+/*div {*/
+/*border-top-left-radius: 1.25rem !important;*/
+/*border-top-right-radius: 1.25rem !important;*/
+/*}*/
+

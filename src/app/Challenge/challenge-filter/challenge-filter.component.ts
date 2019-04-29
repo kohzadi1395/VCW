@@ -34,7 +34,8 @@ export class ChallengeFilterComponent implements OnInit {
     this.Filter = {
       filterDescription: '',
       filterTitle: '',
-      id: ''
+      id: '',
+      isPassed: false
     };
   }
 
@@ -50,7 +51,8 @@ export class ChallengeFilterComponent implements OnInit {
       this.Filter = {
         filterDescription: '',
         filterTitle: '',
-        id: ''
+        id: '',
+        isPassed: false,
       };
       console.log(this.Filter);
     }
