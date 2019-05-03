@@ -1,7 +1,8 @@
-import {Filter} from './filter';
 import {Idea} from './idea';
 
 export interface IdeaFilter {
-  idea: Idea;
-  filters: Array<Filter>;
+  id: string;
+  filterTitle: string;
+  filterDescription: string;
+  ideas: Array<Idea>;
 }

@@ -33,7 +33,8 @@ export class ChallengeIdeaComponent implements OnInit {
     this.Idea = {
       ideaDescription: '',
       ideaTitle: '',
-      id: ''
+      id: '',
+      isPassed: false
     };
   }
 
@@ -63,6 +64,7 @@ export class ChallengeIdeaComponent implements OnInit {
   onSelectionChanged($event: any) {
     const selectedRows: Idea[] = this.gridApi.getSelectedRows();
     console.log(selectedRows);
+    console.log($event);
 
   }
 }

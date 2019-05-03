@@ -1,97 +1,31 @@
-<div class="row ">
-  <div class="col-12">
-    <p class="m-0 p-0 text-center font-weight-bold">Filters</p>
-    <div class="  bg-transparent accordion w-100" id="accordionFilter" style="min-height: 200px">
-      <div *ngFor="let filter of selectedFilters" class="row border border-dark rounded rounded-lg mb-1">
-        <div class="col-4">
-          <div class="card border border-secondary rounded rounded-lg">
-            <div class="card-header" id="headingFilter">
-              <h2 class="mb-0 p-0 text-center">
-                <button [attr.data-target]="'#collapse-'+filter.id" aria-controls="collapseFilter" aria-expanded="true"
-                        class="card-title btn btn-link p-0 m-0"
-                        data-toggle="collapse" type="button">
-                  {{filter.filterTitle}}
-                </button>
-              </h2>
-            </div>
+<div class="container">
+  <div *ngFor="let ideaFilter of ideaFilters" class="mt-3 border border-dark rounded ">
+    <div class="row bg-light m-0 p-0">
+      <div [outsideClick]="true" [popoverTitle]="ideaFilter.filterTitle"
+           [popover]="ideaFilter.filterDescription"
+           class="col-12 text-left font-weight-bolder border-bottom border-secondary "
+           style="font-size: large;">
+        {{ideaFilter.filterTitle}}
+      </div>
+    </div>
+    <div *ngFor="let idea of ideaFilter.ideas" class="row border-bottom border-light m-0 p-0">
+      <div [outsideClick]="true"
+           [popoverTitle]="idea.ideaTitle"
+           [popover]="idea.ideaDescription"
+           class="col-10 btn text-left pl-4" style="font-size: small;">
+        {{idea.ideaTitle}}
+      </div>
+      <div class="col-2 my-auto">
+        <ui-switch [(ngModel)]="idea.isPassed"
+                   checkedLabel="Passed"
+                   color="#6cc974"
+                   defaultBgColor="#ff0000"
+                   size="small"
+                   uncheckedLabel="Not Passed">
 
-            <div [attr.id]="'collapse-'+filter.id" aria-labelledby="headingFilter"
-                 class="collapse border border-secondary rounded rounded-lg"
-                 data-parent="#accordionFilter">
-              <div class="card-body pt-1">
-                {{filter.filterDescription}}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class=" col-8 ">
-          <div class="  bg-transparent accordion w-100" id="accordionIdea"
-               style="min-height: 200px">
-            <div *ngFor="let idea of selectedIdeas">
-              <div class="card border border-secondary rounded rounded-lg">
-                <div class="card-header" id="headingIdea">
-                  <h2 class="mb-0 p-0 text-center">
-                    <button [attr.data-target]="'#collapse-'+idea.id+'-'+filter.id" aria-controls="collapseIdea"
-                            aria-expanded="true"
-                            class="btn btn-link p-0 m-0"
-                            data-toggle="collapse" type="button">
-                      {{idea.ideaTitle}}
-                    </button>
-                  </h2>
-                </div>
-
-                <div [attr.id]="'collapse-'+idea.id+'-'+filter.id" aria-labelledby="headingIdea" class="collapse"
-                     data-parent="#accordionIdea">
-                  <div class="card-body bg-white">
-                    {{idea.ideaDescription}}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </ui-switch>
       </div>
     </div>
   </div>
 </div>
 
-
-<!--****************************************************************************-->
-<!--<div class="bg-funnel">-->
-<!--<div *ngFor="let filter of selectedFilters" class="row">-->
-<!--<div class="col-4 ">{{filter.filterTitle}}</div>-->
-<!--<div class=" col-8 ">-->
-<!--<div class="" *ngFor="let idea of selectedIdeas">-->
-<!--{{idea.ideaTitle}}-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--****************************************************************************-->
-<!--<div class="row">-->
-<!--<div class="bg-transparent accordion w-100" id="accordionFilter" style="min-height: 300px">-->
-<!--<div class="col-12 d-inline-flex">-->
-<!--<div *ngFor="let filter of selectedFilters" class="border border-dark rounded rounded-lg mb-1">-->
-<!--<div class="card border border-secondary rounded rounded-lg">-->
-<!--<div class="card-header" id="headingFilter">-->
-<!--<h2 class="mb-0 p-0 text-center">-->
-<!--<button [attr.data-target]="'#collapse-'+filter.id" aria-controls="collapseFilter" aria-expanded="true"-->
-<!--class="card-title btn btn-link p-0 m-0"-->
-<!--data-toggle="collapse" type="button">-->
-<!--{{filter.filterTitle}}-->
-<!--</button>-->
-<!--</h2>-->
-<!--</div>-->
-
-<!--<div [attr.id]="'collapse-'+filter.id" aria-labelledby="headingFilter"-->
-<!--class="collapse border border-secondary rounded rounded-lg"-->
-<!--data-parent="#accordionFilter">-->
-<!--<div class="card-body pt-1">-->
-<!--{{filter.filterDescription}}-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->

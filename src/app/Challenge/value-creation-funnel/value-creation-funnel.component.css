@@ -6,6 +6,9 @@
   min-height: 500px
 }
 
+.popover-title {
+  font-size: medium !important;
+}
 /*div {*/
 /*border-top-left-radius: 1.25rem !important;*/
 /*border-top-right-radius: 1.25rem !important;*/

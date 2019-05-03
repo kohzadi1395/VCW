@@ -44,6 +44,8 @@ import {OnlyForTestComponent} from './ONlyForTest/only-for-test/only-for-test.co
 import {EditRemoveButtonComponent} from './edit-remove-button/edit-remove-button.component';
 import {ChildMessageRendererComponent} from './ONlyForTest/child-message-renderer/child-message-renderer.component';
 import {CurrencyRendererComponent} from './ONlyForTest/currency-renderer/currency-renderer.component';
+import {UiSwitchModule} from 'ngx-ui-switch';
+import {PopoverModule} from 'ngx-bootstrap/popover';
 
 @NgModule({
   declarations: [
@@ -98,7 +100,9 @@ import {CurrencyRendererComponent} from './ONlyForTest/currency-renderer/currenc
     FileUploadModule,
     MatAutocompleteModule,
     AgGridModule.withComponents([ChildMessageRendererComponent,
-      CurrencyRendererComponent])
+      CurrencyRendererComponent]),
+    UiSwitchModule,
+    PopoverModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

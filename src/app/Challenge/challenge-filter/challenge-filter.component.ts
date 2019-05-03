@@ -34,8 +34,7 @@ export class ChallengeFilterComponent implements OnInit {
     this.Filter = {
       filterDescription: '',
       filterTitle: '',
-      id: '',
-      isPassed: false
+      id: ''
     };
   }
 
@@ -51,8 +50,7 @@ export class ChallengeFilterComponent implements OnInit {
       this.Filter = {
         filterDescription: '',
         filterTitle: '',
-        id: '',
-        isPassed: false,
+        id: ''
       };
       console.log(this.Filter);
     }
@@ -72,6 +70,7 @@ export class ChallengeFilterComponent implements OnInit {
   onSelectionChanged($event: any) {
     const selectedRows: Filter[] = this.gridApi.getSelectedRows();
     console.log(selectedRows);
+    console.log($event);
 
   }
 }

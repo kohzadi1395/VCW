@@ -1,0 +1,162 @@
+[
+  {
+    "id": "cecd780c-8636-5601-7bc9-0a368be3c6e3",
+    "filterTitle": "Inside the SQL Server Optimize",
+    "filterDescription": "Running SQL Server on a virtual machine will be slower than running natively because of the overhead of virtualization.",
+    "ideas": [
+      {
+        "id": "cecd780c-8626-5601-7bc9-0a368beca6e3",
+        "ideaTitle": "Inside the SQL Server Query Optimize1",
+        "ideaDescription": "Running SQL Server on a virtual machine will be slower than running natively because of the overhead of virtualization."
+      },
+      {
+        "id": "e33969a0-b921-4603-6421-1f12254da39f",
+        "ideaTitle": "SQL Server Statistic2",
+        "ideaDescription": "Installation of SQL Server is supported on x64 processors only. It is no longer supported on x86 processors."
+      },
+      {
+        "id": "4a1070ca-b306-8f23-41b2-2c569d091387",
+        "ideaTitle": "SQL Server Hardwar3",
+        "ideaDescription": "Exceptions to the operating system support noted in this section are the following Business Intelligence features for SQL Server 2016 (13.x) and earlier, which can be installed on Windows Server 2008 R2 SP1 or later:\n\n    Reporting Services - SharePoint\n\n    Reporting Services Add-in for SharePoint products\n"
+      },
+      {
+        "id": "309145d3-fb78-3196-4b8e-34a2d6cefe85",
+        "ideaTitle": "Inside the SQL Server Query Optimize4",
+        "ideaDescription": "delerium. novum quo apparens vobis estum. Longam, fecundio, plorum quo transit. manifestum Longam, non volcans"
+      },
+      {
+        "id": "02d00dc2-9ee2-ff41-9653-3e504538564c",
+        "ideaTitle": "SQL Server Hardwar5",
+        "ideaDescription": "SQL Server failover cluster installation supports Local Disk only for installing the tempdb files. Ensure that the path specified for the tempdb data and log files is valid on all the cluster nodes. During failover, if the tempdb directories are not available on the failover target node, the SQL Server resource will fail to come online."
+      }
+    ]
+  },
+  {
+    "id": "e33969a0-b921-4603-6466-1f12254da39f",
+    "filterTitle": "SQL Server Statistic",
+    "filterDescription": "Installation of SQL Server is supported on x64 processors only. It is no longer supported on x86 processors.",
+    "ideas": [
+      {
+        "id": "cecd780c-8546-5601-7bc9-0a368be3c6e3",
+        "ideaTitle": "Inside the SQL Server Query Optimize1",
+        "ideaDescription": "Running SQL Server on a virtual machine will be slower than running natively because of the overhead of virtualization."
+      },
+      {
+        "id": "e33969a0-b921-4603-5421-1f12254da39f",
+        "ideaTitle": "SQL Server Statistic2",
+        "ideaDescription": "Installation of SQL Server is supported on x64 processors only. It is no longer supported on x86 processors."
+      },
+      {
+        "id": "4a1070ca-b306-8f23-412b-2c569d091387",
+        "ideaTitle": "SQL Server Hardwar3",
+        "ideaDescription": "Exceptions to the operating system support noted in this section are the following Business Intelligence features for SQL Server 2016 (13.x) and earlier, which can be installed on Windows Server 2008 R2 SP1 or later:\n\n    Reporting Services - SharePoint\n\n    Reporting Services Add-in for SharePoint products\n"
+      },
+      {
+        "id": "309145d3-fb78-3196-4b8e-34a2d6cefe85",
+        "ideaTitle": "Inside the SQL Server Query Optimize4",
+        "ideaDescription": "delerium. novum quo apparens vobis estum. Longam, fecundio, plorum quo transit. manifestum Longam, non volcans"
+      },
+      {
+        "id": "02d00dc2-9ee2-ff41-9543-3e504538564c",
+        "ideaTitle": "SQL Server Hardwar5",
+        "ideaDescription": "SQL Server failover cluster installation supports Local Disk only for installing the tempdb files. Ensure that the path specified for the tempdb data and log files is valid on all the cluster nodes. During failover, if the tempdb directories are not available on the failover target node, the SQL Server resource will fail to come online."
+      }
+    ]
+  },
+  {
+    "id": "4a1070ca-b306-8f23-422b-2c569d091387",
+    "filterTitle": "SQL Server Hardware",
+    "filterDescription": "Exceptions to the operating system support noted in this section are the following Business Intelligence features for SQL Server 2016 (13.x) and earlier, which can be installed on Windows Server 2008 R2 SP1 or later:\n\n    Reporting Services - SharePoint\n\n    Reporting Services Add-in for SharePoint products\n",
+    "ideas": [
+      {
+        "id": "cecd780c-8596-5601-7bc9-0a368be3c6e3",
+        "ideaTitle": "Inside the SQL Server Query Optimize1",
+        "ideaDescription": "Running SQL Server on a virtual machine will be slower than running natively because of the overhead of virtualization."
+      },
+      {
+        "id": "e33969a0-b921-4603-5921-1f12254da39f",
+        "ideaTitle": "SQL Server Statistic2",
+        "ideaDescription": "Installation of SQL Server is supported on x64 processors only. It is no longer supported on x86 processors."
+      },
+      {
+        "id": "4a1070ca-b306-8f23-412b-2c569d091387",
+        "ideaTitle": "SQL Server Hardwar3",
+        "ideaDescription": "Exceptions to the operating system support noted in this section are the following Business Intelligence features for SQL Server 2016 (13.x) and earlier, which can be installed on Windows Server 2008 R2 SP1 or later:\n\n    Reporting Services - SharePoint\n\n    Reporting Services Add-in for SharePoint products\n"
+      },
+      {
+        "id": "309145d3-fb78-3196-4b8e-34a2d6cefe85",
+        "ideaTitle": "Inside the SQL Server Query Optimize4",
+        "ideaDescription": "delerium. novum quo apparens vobis estum. Longam, fecundio, plorum quo transit. manifestum Longam, non volcans"
+      },
+      {
+        "id": "02d00dc2-9ee2-ff41-9543-3e504538564c",
+        "ideaTitle": "SQL Server Hardwar5",
+        "ideaDescription": "SQL Server failover cluster installation supports Local Disk only for installing the tempdb files. Ensure that the path specified for the tempdb data and log files is valid on all the cluster nodes. During failover, if the tempdb directories are not available on the failover target node, the SQL Server resource will fail to come online."
+      }
+    ]
+  },
+  {
+    "id": "309145d3-fb78-3196-498e-34a2d6cefe85",
+    "filterTitle": "SQL Server Software",
+    "filterDescription": "delerium. novum quo apparens vobis estum. Longam, fecundio, plorum quo transit. manifestum Longam, non volcans",
+    "ideas": [
+      {
+        "id": "cecd780c-8946-5601-7bc9-0a368be3c6e3",
+        "ideaTitle": "Inside the SQL Server Query Optimize1",
+        "ideaDescription": "Running SQL Server on a virtual machine will be slower than running natively because of the overhead of virtualization."
+      },
+      {
+        "id": "e33969a0-b921-4603-9421-1f12254da39f",
+        "ideaTitle": "SQL Server Statistic2",
+        "ideaDescription": "Installation of SQL Server is supported on x64 processors only. It is no longer supported on x86 processors."
+      },
+      {
+        "id": "4a1070ca-b306-8f23-412b-2c569d091387",
+        "ideaTitle": "SQL Server Hardwar3",
+        "ideaDescription": "Exceptions to the operating system support noted in this section are the following Business Intelligence features for SQL Server 2016 (13.x) and earlier, which can be installed on Windows Server 2008 R2 SP1 or later:\n\n    Reporting Services - SharePoint\n\n    Reporting Services Add-in for SharePoint products\n"
+      },
+      {
+        "id": "309145d3-fb78-3196-4b8e-34a2d6cefe85",
+        "ideaTitle": "Inside the SQL Server Query Optimize4",
+        "ideaDescription": "delerium. novum quo apparens vobis estum. Longam, fecundio, plorum quo transit. manifestum Longam, non volcans"
+      },
+      {
+        "id": "02d00dc2-9ee2-ff41-9543-3e504538564c",
+        "ideaTitle": "SQL Server Hardwar5",
+        "ideaDescription": "SQL Server failover cluster installation supports Local Disk only for installing the tempdb files. Ensure that the path specified for the tempdb data and log files is valid on all the cluster nodes. During failover, if the tempdb directories are not available on the failover target node, the SQL Server resource will fail to come online."
+      }
+    ]
+  },
+  {
+    "id": "02d00dc2-9ee2-ff41-9983-3e504538564c",
+    "filterTitle": "SQL Server Appearance",
+    "filterDescription": "SQL Server failover cluster installation supports Local Disk only for installing the tempdb files. Ensure that the path specified for the tempdb data and log files is valid on all the cluster nodes. During failover, if the tempdb directories are not available on the failover target node, the SQL Server resource will fail to come online.",
+    "ideas": [
+      {
+        "id": "cecd780c-8326-5601-7bc9-0a368be3c6e3",
+        "ideaTitle": "Inside the SQL Server Query Optimize1",
+        "ideaDescription": "Running SQL Server on a virtual machine will be slower than running natively because of the overhead of virtualization."
+      },
+      {
+        "id": "e33969a0-b921-4603-6321-1f12254da39f",
+        "ideaTitle": "SQL Server Statistic2",
+        "ideaDescription": "Installation of SQL Server is supported on x64 processors only. It is no longer supported on x86 processors."
+      },
+      {
+        "id": "4a1070ca-b306-8f23-412b-2c569d091387",
+        "ideaTitle": "SQL Server Hardwar3",
+        "ideaDescription": "Exceptions to the operating system support noted in this section are the following Business Intelligence features for SQL Server 2016 (13.x) and earlier, which can be installed on Windows Server 2008 R2 SP1 or later:\n\n    Reporting Services - SharePoint\n\n    Reporting Services Add-in for SharePoint products\n"
+      },
+      {
+        "id": "309145d3-fb78-3196-4b8e-34a2d6cefe85",
+        "ideaTitle": "Inside the SQL Server Query Optimize4",
+        "ideaDescription": "delerium. novum quo apparens vobis estum. Longam, fecundio, plorum quo transit. manifestum Longam, non volcans"
+      },
+      {
+        "id": "02d00dc2-9ee2-ff41-9543-3e504538564c",
+        "ideaTitle": "SQL Server Hardwar5",
+        "ideaDescription": "SQL Server failover cluster installation supports Local Disk only for installing the tempdb files. Ensure that the path specified for the tempdb data and log files is valid on all the cluster nodes. During failover, if the tempdb directories are not available on the failover target node, the SQL Server resource will fail to come online."
+      }
+    ]
+  }
+]
