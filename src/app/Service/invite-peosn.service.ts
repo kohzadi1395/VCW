@@ -7,10 +7,9 @@ import {Person} from '../Models/person';
   providedIn: 'root'
 })
 export class InvitePersonService {
-  private suggestionPersonList: any[];
+  private suggestionPersonList: Array<Person> = [];
   private suggestionPersonSubject = new Subject();
   PersonList = this.suggestionPersonSubject.asObservable();
-  result: Person[];
 
   constructor(private http: HttpClient) {
   }
@@ -24,11 +23,18 @@ export class InvitePersonService {
       })
     };
     console.log(objectToSend);
-    this.http.get('http://localhost:61072/api/userprofile')
-      .map((res: Response) => res).subscribe(res => {
-      this.suggestionPersonList = Object.keys(res).map(key => res[key]);
+    this.http.get('http://localhost:61072/api/users').subscribe(response => {
+      this.suggestionPersonList = Object.keys(response).map(key => response[key]);
       this.suggestionPersonSubject.next(this.suggestionPersonList);
-      this.result = Object.keys(res).map(key => res[key]);
+      console.log(response);
+    }, error => {
+      this.handleError('Unable to get message');
     });
+  }
+
+  private handleError(error) {
+    console.log(error);
+    // this.snackBar.open(error, 'Close', { duration: 3500, verticalPosition: 'top', panelClass: 'snack-error'});
+
   }
 }

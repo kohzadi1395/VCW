@@ -3,6 +3,6 @@ export interface Person {
   firstName: string;
   lastName: string;
   title: string;
-  image: string;
+  profileImage: string;
   company: string;
 }

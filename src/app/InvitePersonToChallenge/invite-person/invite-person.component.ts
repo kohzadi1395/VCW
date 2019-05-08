@@ -16,7 +16,8 @@ export class InvitePersonComponent implements OnInit {
 
   @Output() invitedPerson = new EventEmitter();
 
-  constructor(public tagService: TagService, public invitePersonService: InvitePersonService) {
+  constructor(public tagService: TagService,
+              public invitePersonService: InvitePersonService) {
   }
 
   selectedTags = [];

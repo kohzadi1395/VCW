@@ -1,3 +1,5 @@
+import {Person} from './person';
+
 export interface Challenge {
   id: string;
   title: string;
@@ -8,5 +10,6 @@ export interface Challenge {
   thirdBounce: string;
   companyName: string;
   challengeType: boolean;
-  challengeStateCode: number;
+  challengeState: number;
+  invitePerson: Array<Person>;
 }

@@ -51,12 +51,14 @@
           </div>
         </div>
       </form>
-      <img *ngFor="let person of topPerson" alt=""
+      <img *ngFor="let person of topPerson"
+           [src]="profilePicture(person.profileImage)"
+           alt=""
            class="rounded-circle"
-           popover="You see, I show up on hover!" popoverTitle="Pop title"
-           src="../../../assets/image/ProfileImage/{{person.image}}"
+           popover="{{person.title}} At {{person.company}}"
+           popoverTitle="{{person.lastName}} {{person.firstName}}"
            triggers="mouseenter:mouseleave">
-
+      <button (click)="onSubmit()" class="btn btn-success form-control">Create Challenge</button>
     </div>
     <div class="col-4 bg-light shadow  pl-2 pt-3 border border-dark">
       <app-invite-person (invitedPerson)="invitedPerson($event)"></app-invite-person>

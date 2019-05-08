@@ -4,6 +4,7 @@ import {ChallengeService} from '../../Service/challenge.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TransferDataService} from '../../Service/transfer-data.service';
 import {GridRowData} from '../../Models/gridRowData';
+import {ChallengeGetDTO} from '../../DTOs/challengeDTOs';
 
 @Component({
   selector: 'app-challenge-list',
@@ -19,19 +20,13 @@ export class ChallengeListComponent implements OnInit {
     columnData: null
   };
   private getRowNodeId: (data) => any;
-  private rowData: ({
-    id: string,
-    title: string,
-    description: string,
-    deadline: string,
-    firstBounce: number,
-    secondBounce: number,
-    thirdBounce: number,
-    companyName: number,
-    challengeType: boolean,
-    challengeStateCode: number
-  }) [];
-  private defaultColDef: { filter: boolean; resizable: boolean; editable: boolean; sortable: boolean };
+  private rowData: Array<ChallengeGetDTO>;
+  private defaultColDef: {
+    filter: boolean;
+    resizable: boolean;
+    editable: boolean;
+    sortable: boolean
+  };
   private gridApi: any;
   private gridColumnApi: any;
   private columnDefs: any;
@@ -41,9 +36,13 @@ export class ChallengeListComponent implements OnInit {
                      private router: Router,
                      private transferData: TransferDataService,
                      activatedRoute: ActivatedRoute) {
+
     this.route = activatedRoute;
     this.columnDefs = require('../../shared/challengeColumnConfig.json');
-    this.rowData = require('../../shared/challengeData.json');
+    challengeService.getChallenges().subscribe((data: Array<ChallengeGetDTO>) => {
+      this.rowData = data;
+    });
+
     this.defaultColDef = {
       editable: false,
       sortable: true,

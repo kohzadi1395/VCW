@@ -1,44 +1,31 @@
 <div *ngIf="challenge" class="row h-100">
   <div class="col-12">
-    <div class="form-group">
-      <label for="ChallengeDescription">Description</label>
-      <textarea class="form-control"
-                id="ChallengeDescription" rows="3"></textarea>
-    </div>
     <div class="row">
-      <div class="col-7 m-0 p-0">
-        <input [(ngModel)]="row.fileName"
-               class="form-control-small border-dark"
-               id="file" type="file">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="ChallengeDescription">Description</label>
+          <textarea class="form-control"
+                    id="ChallengeDescription" rows="3"></textarea>
+        </div>
       </div>
-      <div class="col-4 m-0 p-0">
-        <select [(ngModel)]="row.docType"
-                class="form-control-small h-100 w-100 m-0 p-0" id="methodType">
-          <option selected>Choose...</option>
-          <option *ngFor="let docType of docTypes">{{docType}}</option>
-        </select>
-      </div>
-      <div class="col-1 m-0 p-0 text-center">
-        <button (click)="addFile()" class="form-control-small btn btn-primary rounded-pill">
-          <span class="fas fa-plus text-white"></span></button>
+    </div>
+    <div class="row pl-3 pr-2">
+      <div class="col-12 m-0 p-0 ">
+        <div class="form-group">
+          <label for="methodType">File Type</label>
+          <select [(ngModel)]="row.docType"
+                  class="form-control-small h-100 w-100 m-0 p-0" id="methodType">
+            <option *ngFor="let docType of docTypes">{{docType}}</option>
+          </select>
+        </div>
       </div>
     </div>
     <div class="row">
-      <ag-grid-angular
-        #topGrid
-        (gridReady)="onGridReady($event)"
-        (selectionChanged)="onSelectionChanged($event)"
-        [animateRows]="true"
-        [columnDefs]="columnDefs"
-        [defaultColDef]="defaultColDef"
-        [getRowNodeId]="getRowNodeId"
-        [rowData]="rowData"
-        [rowSelection]="'single'"
-        class="ag-theme-balham"
-        id="myGrid"
-        style="width: 100%; height: 200px;"
-      ></ag-grid-angular>
+      <div class="col-12 ">
+        <app-uploader [FileType]="row.docType"></app-uploader>
+      </div>
     </div>
   </div>
 </div>
+
 

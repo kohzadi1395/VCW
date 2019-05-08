@@ -3,31 +3,30 @@ import {RouterModule} from '@angular/router';
 import {HomeComponent} from './MainPage/home/home.component';
 import {CreateChallengeComponent} from './Challenge/challenge-create/create-challenge.component';
 import {LoginPageComponent} from './MainPage/Login/login-page/login-page.component';
-import {DefaultComponent} from './MainPage/default/default.component';
 import {DashboardPanelComponent} from './dashboardComponents/dashboard-panel/dashboard-panel.component';
 import {ChallengeListComponent} from './Challenge/challenge-list/challenge-list.component';
 import {ChallengeViewComponent} from './Challenge/challenge-view/challenge-view.component';
 import {ChallengePanelComponent} from './Challenge/challenge-panel/challenge-panel.component';
-import {OnlyForTestComponent} from './ONlyForTest/only-for-test/only-for-test.component';
+import {UploaderComponent} from "./uploader/uploader.component";
 
 const routes = [
-  // {
-  // path: '',
-  // component: CreateChallengeComponent
-// },
   {
     path: '',
-    component: OnlyForTestComponent
+    component: UploaderComponent
+  },
+  {
+    path: '',
+    component: UploaderComponent
   },
 //   {
 //     path: '',
 //     redirectTo: '/Default',
 //     pathMatch: 'full'
 //   },
-  {
-    path: 'Default',
-    component: DefaultComponent,
-  },
+//   {
+//     path: 'Default',
+//     component: DefaultComponent,
+//   },
   {
     path: 'challenge',
     component: CreateChallengeComponent

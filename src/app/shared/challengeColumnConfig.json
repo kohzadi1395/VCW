@@ -5,7 +5,7 @@
     "children": [
       {
         "headerName": "challengeStateCode",
-        "field": "challengeStateCode",
+        "field": "challengeState",
         "sortable": true
       },
       {

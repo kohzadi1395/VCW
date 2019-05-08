@@ -90,7 +90,7 @@ export class ChallengePanelComponent implements OnInit {
 
   SetShowComponent(componentName, limitLevel: number) {
     console.log('StepTwoA Methods');
-    if (this.challenge && this.challenge.challengeStateCode + 1 > limitLevel) {
+    if (this.challenge && this.challenge.challengeState + 1 > limitLevel) {
       this.componentMustShow = componentName;
       console.log(this.componentMustShow);
       this.openForm();

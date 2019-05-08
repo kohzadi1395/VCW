@@ -1,28 +1,50 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
-// import {Subject} from 'rxjs/Rx';
-import {Subject} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
+import {ChallengeGetDTO, ChallengePostDTO} from '../DTOs/challengeDTOs';
+import {retry} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChallengeService {
 
-  ChallengeList = [];
-  private BaseUrl = 'http://localhost:61072/api/challenge';
-  private ChallengeSubject = new Subject();
-  Challenges = this.ChallengeSubject.asObservable();
+  private BaseUrl = 'http://localhost:61072/api';
 
-
-  constructor(private http: HttpClient) {
+  constructor(private httpClient: HttpClient) {
   }
 
-  getChallenges() {
-    this.http.get(this.BaseUrl).subscribe(res => {
-      this.ChallengeList = Object.keys(res).map(key => res[key]);
-      this.ChallengeSubject.next(this.ChallengeList);
+  getChallenges(): Observable<ChallengeGetDTO[]> {
+    return this.httpClient.get<ChallengeGetDTO[]>(this.BaseUrl + '/challenge').pipe(
+      retry(1)
+    );
+  }
+
+  getChallenge(id: string): Observable<ChallengeGetDTO> {
+    return this.httpClient.get<ChallengeGetDTO>(this.BaseUrl + '/challenge/' + id).pipe(
+      retry(1)
+    );
+  }
+
+
+  postChallenge(challengeDto: ChallengePostDTO) {
+    this.httpClient.post(this.BaseUrl + '/challenge', challengeDto).subscribe(res => {
+      console.log(res);
     });
   }
-}
 
+
+  handleError(error) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+// Get client-side error
+      errorMessage = error.error.message;
+    } else {
+// Get server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
+  }
+}

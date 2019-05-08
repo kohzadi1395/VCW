@@ -46,6 +46,7 @@ import {ChildMessageRendererComponent} from './ONlyForTest/child-message-rendere
 import {CurrencyRendererComponent} from './ONlyForTest/currency-renderer/currency-renderer.component';
 import {UiSwitchModule} from 'ngx-ui-switch';
 import {PopoverModule} from 'ngx-bootstrap/popover';
+import {UploaderComponent} from './uploader/uploader.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import {PopoverModule} from 'ngx-bootstrap/popover';
     EditRemoveButtonComponent,
     ChildMessageRendererComponent,
     CurrencyRendererComponent,
+    UploaderComponent,
   ],
   imports: [
     AgGridModule.withComponents([]),

@@ -12,8 +12,12 @@ import {GridRowData} from '../../Models/gridRowData';
   styleUrls: ['./main-challenge.component.css']
 })
 export class MainChallengeComponent implements OnInit {
-  @Input() gridRowData: GridRowData;
-  @Input() challenge: Challenge;
+  @Input()
+  gridRowData: GridRowData;
+
+  @Input()
+  challenge: Challenge;
+
   docTypes = ['Macro & Micro Analysis',
     'Internal & External Analysis',
     'SWOT & TOWS',
@@ -32,13 +36,13 @@ export class MainChallengeComponent implements OnInit {
     fileName: '',
     docType: ''
   };
-  private getRowNodeId: (data) => any;
+  getRowNodeId: (data) => any;
   private readonly route: ActivatedRoute;
-  private defaultColDef: { filter: boolean; resizable: boolean; editable: boolean; sortable: boolean };
+  defaultColDef: { filter: boolean; resizable: boolean; editable: boolean; sortable: boolean };
   private gridApi: any;
   private gridColumnApi: any;
-  private columnDefs: [];
-  private readonly rowData: Array<Attachment> = [];
+  columnDefs: [];
+  readonly rowData: Array<Attachment> = [];
 
   public constructor(private challengeService: ChallengeService,
                      private router: Router,
@@ -58,6 +62,7 @@ export class MainChallengeComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+
   }
 
   public addFile() {
@@ -91,11 +96,12 @@ export class MainChallengeComponent implements OnInit {
     this.gridApi.sizeColumnsToFit();
   }
 
-  onSelectionChanged($event: any) {
+  onSelectionChanged() {
     const selectedRows: Attachment[] = this.gridApi.getSelectedRows();
     console.log(selectedRows);
-
   }
+
+
 }
 
 

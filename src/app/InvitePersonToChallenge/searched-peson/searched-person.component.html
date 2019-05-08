@@ -1,11 +1,13 @@
 <!--<div class="mt-1 pl-1 d-flex rounded  shadow bg-light" cdkDragcdkDrag>-->
 <div class="mt-1 pl-1 d-flex rounded  shadow bg-light">
   <div class="col-2 text-center  p-0">
-    <img class="rounded-circle" src="../../../assets/image/ProfileImage/{{person.image}}">
+    <!--<img class="rounded-circle" src="../../../assets/image/profileImage/{{Person.profileImage}}">-->
+    <!--<img class="rounded-circle" src="data:image/png;base64,{{Person.profileImage}}" id="photo-id" alt="profileImage"/>-->
+    <img [src]="profilePicture()" alt="" class="rounded-circle" style="width: 50px"/>
   </div>
   <div class="col-8 pl-2 my-auto">
-    <p class="font-weight-bold font"> {{person.lastName}} {{person.firstName}}</p> {{person.title}}
-    At {{person.company}}
+    <p class="font-weight-bold font m-0 p-0"> {{Person.lastName}} {{Person.firstName}}</p> {{Person.title}}
+    At {{Person.company}}
   </div>
   <div class="col-2 p-0 my-auto  text-center">
     <button (click)="selectPerson()" class="btn btn-primary rounded-circle">

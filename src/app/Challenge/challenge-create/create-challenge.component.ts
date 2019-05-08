@@ -2,8 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Person} from '../../Models/person';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {EmailValidation} from '../../../Utilities/UtilityStringFunc';
+import {EmailValidation, NewGuid} from '../../../Utilities/UtilityStringFunc';
 import {Challenge} from '../../Models/challenge';
+import {DomSanitizer} from '@angular/platform-browser';
+import {ChallengePostDTO} from '../../DTOs/challengeDTOs';
+import {ChallengeService} from '../../Service/challenge.service';
 
 @Component({
   selector: 'app-create-challenge',
@@ -18,7 +21,11 @@ export class CreateChallengeComponent implements OnInit {
   private topPerson: Person[];
 
   constructor(private  fb: FormBuilder,
-              private http: HttpClient) {
+              private http: HttpClient,
+              private sanitizer: DomSanitizer,
+              private challengeService: ChallengeService,
+  ) {
+
     this.form = fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -32,6 +39,7 @@ export class CreateChallengeComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   isValid(control) {
@@ -40,6 +48,20 @@ export class CreateChallengeComponent implements OnInit {
 
   onSubmit() {
 
+    const challenge: ChallengePostDTO = {
+      title: this.form.value.title,
+      challengeState: 1,
+      challengeType: this.form.value.challengeType,
+      thirdBounce: this.form.value.thirdBounce,
+      secondBounce: this.form.value.secondBounce,
+      firstBounce: this.form.value.firstBounce,
+      deadline: this.form.value.deadline,
+      description: this.form.value.description,
+      companyName: this.form.value.companyName,
+      id: NewGuid(),
+      invitePersonId: this.selectedPersons.map(x => x.id)
+    };
+    this.challengeService.postChallenge(challenge);
   }
 
   invitedPerson($event: Person) {
@@ -49,5 +71,9 @@ export class CreateChallengeComponent implements OnInit {
       this.selectedPersons.push(person);
     }
     this.topPerson = this.selectedPersons.slice(Math.max(this.selectedPersons.length - 10, 0));
+  }
+
+  profilePicture(byteImage) {
+    return this.sanitizer.bypassSecurityTrustUrl('data:image/PNG;base64,' + byteImage);
   }
 }

@@ -1,4 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {DomSanitizer} from '@angular/platform-browser';
+import {Person} from '../../Models/person';
 
 @Component({
   selector: 'app-searched-peron',
@@ -8,24 +10,27 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class SearchedPersonComponent implements OnInit {
 
   @Output() addPerson = new EventEmitter();
-  private person = {
+
+  private person: Person = {
+    id: '',
     firstName: '',
     lastName: '',
     title: '',
-    image: '',
+    profileImage: '',
     company: '',
   };
 
-  get Person(): { firstName: string; lastName: string; company: string; image: string; title: string } {
+  constructor(private sanitizer: DomSanitizer) {
+  }
+
+  get Person(): Person {
     return this.person;
   }
 
   @Input()
-  set Person(value: { firstName: string; lastName: string; company: string; image: string; title: string }) {
+  set Person(value: Person) {
     this.person = value;
-  }
-
-  constructor() {
+    console.log(this.person);
   }
 
   ngOnInit() {
@@ -33,5 +38,9 @@ export class SearchedPersonComponent implements OnInit {
 
   selectPerson() {
     this.addPerson.emit(this.Person);
+  }
+
+  profilePicture() {
+    return this.sanitizer.bypassSecurityTrustUrl('data:image/PNG;base64,' + this.Person.profileImage);
   }
 }

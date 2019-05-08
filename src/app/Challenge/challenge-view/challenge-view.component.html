@@ -1,43 +1,52 @@
-<div *ngIf="challenge" style="overflow: scroll">
+<div *ngIf="challenge">
   <div class="form-group">
     <label class="col-form-label" for="ChallengeTitle">Title</label>
     <input class="form-control bg-white" id="ChallengeTitle" readonly
-           type="text" value="{{challenge.title}}">
+           type="text" value="{{challengeDTO.title}}">
   </div>
   <div class="form-group">
     <label for="ChallengeDescription">Challenge's Description</label>
     <textarea class="form-control bg-white " id="ChallengeDescription"
-              readonly rows="2">{{challenge.description}}</textarea>
+              readonly rows="2">{{challengeDTO.description}}</textarea>
   </div>
   <div class="form-group">
     <label for="Deadline">Deadline for receive idea</label>
-    <input class="form-control bg-white " id="Deadline" readonly
-           type="date" value="{{challenge.deadline}}">
+    <input [value]="challengeDTO.deadline |date:'yyyy-MM-dd'" class="form-control bg-white " id="Deadline"
+           readonly type="date">
     <label for="challengeType">challenge Type</label>
     <input class="form-control bg-white " id="challengeType" readonly
-           type="Text" value="{{challenge.challengeType ? 'Personal Challenge' : 'Company s Challenge'}}">
+           type="Text" value="{{challengeDTO.challengeType ? 'Personal Challenge' : 'Company s Challenge'}}">
     <label for="companyName">Company's Name</label>
     <input class="form-control bg-white " id="companyName" readonly
-           type="text" value="{{challenge.companyName}}">
+           type="text" value="{{challengeDTO.companyName?challengeDTO.companyName:'---'}}">
   </div>
   <div class="form-group border border-primary rounded">
     <div class="row">
       <div class="col-4">
         <img alt="" src="../../../assets/Icon/medal_gold.png">
         <input class="form-control bg-white " id="firstBounce" readonly
-               type="number" value="{{challenge.firstBounce}}">
+               type="number" value="{{challengeDTO.firstBounce}}">
       </div>
       <div class="col-4">
         <img alt="" src="../../../assets/Icon/medal_silver.png">
         <input class="form-control bg-white " id="SecondBounce" readonly
-               type="number" value="{{challenge.secondBounce}}">
+               type="number" value="{{challengeDTO.secondBounce}}">
       </div>
       <div class="col-4">
         <img alt="" src="../../../assets/Icon/medal_bronze.png">
         <input class="form-control bg-white " id="ThirdBounce" readonly
-               type="number" value="{{challenge.thirdBounce}}">
+               type="number" value="{{challengeDTO.thirdBounce}}">
       </div>
     </div>
+  </div>
+  <div class="form-group border border-light rounded">
+    <img *ngFor="let person of topPerson"
+         [src]="profilePicture(person.profileImage)"
+         alt=""
+         class="rounded-circle"
+         popover="{{person.title}} At {{person.company}}"
+         popoverTitle="{{person.lastName}} {{person.firstName}}"
+         triggers="mouseenter:mouseleave">
   </div>
 </div>
 
