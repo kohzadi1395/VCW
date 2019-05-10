@@ -21,7 +21,6 @@ export class ChallengeViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.challenge.id);
     this.challengeService.getChallenge(this.challenge.id).subscribe((data: ChallengeGetDTO) => {
       this.challengeDTO = data;
       this.topPerson = data.invitePerson;

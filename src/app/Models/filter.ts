@@ -1,5 +1,5 @@
 export interface Filter {
   id: string;
-  filterTitle: string;
-  filterDescription: string;
+  title: string;
+  description: string;
 }

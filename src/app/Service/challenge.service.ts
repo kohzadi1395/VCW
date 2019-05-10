@@ -2,14 +2,13 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
 import {Observable, throwError} from 'rxjs';
-import {ChallengeGetDTO, ChallengePostDTO} from '../DTOs/challengeDTOs';
+import {ChallengeGetDTO, ChallengePostDTO, ChallengePostFilterDTO, ChallengePostIdeaDTO} from '../DTOs/challengeDTOs';
 import {retry} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChallengeService {
-
   private BaseUrl = 'http://localhost:61072/api';
 
   constructor(private httpClient: HttpClient) {
@@ -47,4 +46,17 @@ export class ChallengeService {
     window.alert(errorMessage);
     return throwError(errorMessage);
   }
+
+  postChallengeIdea(challengeIdea: ChallengePostIdeaDTO) {
+    this.httpClient.post(this.BaseUrl + '/challenge/InsertIdea', challengeIdea).subscribe(res => {
+      console.log(res);
+    });
+  }
+
+  postChallengeFilter(challengeFilter: ChallengePostFilterDTO) {
+    this.httpClient.post(this.BaseUrl + '/challenge/InsertFilter', challengeFilter).subscribe(res => {
+      console.log(res);
+    });
+  }
+
 }

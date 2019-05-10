@@ -1,7 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Challenge} from '../../Models/challenge';
 import {Idea} from '../../Models/idea';
-import {GridRowData} from '../../Models/gridRowData';
+import {ChallengeGetDTO, ChallengePostIdeaDTO} from '../../DTOs/challengeDTOs';
+import {ChallengeService} from '../../Service/challenge.service';
+import {NewGuid} from '../../../Utilities/UtilityStringFunc';
+
 
 @Component({
   selector: 'app-challenge-idea',
@@ -9,17 +12,21 @@ import {GridRowData} from '../../Models/gridRowData';
   styleUrls: ['./challenge-idea.component.css']
 })
 export class ChallengeIdeaComponent implements OnInit {
-  @Input() gridRowData: GridRowData;
-  @Input() challenge: Challenge;
+
+  @Input()
+  challenge: Challenge;
+
   columnDefs: [];
+
   defaultColDef: any;
-  private readonly rowData: Array<Idea> = [];
-  private readonly Idea: Idea;
+  private rowData: Array<Idea> = [];
+  private idea: Idea;
   private gridColumnApi: any;
   private gridApi: any;
   private getRowNodeId: (data) => any;
+  private challengeDTO: ChallengeGetDTO;
 
-  constructor() {
+  constructor(private challengeService: ChallengeService) {
     this.columnDefs = require('../../shared/IdeaColumnConfig.json');
     this.defaultColDef = {
       editable: false,
@@ -30,23 +37,38 @@ export class ChallengeIdeaComponent implements OnInit {
     this.getRowNodeId = function (data) {
       return data.id;
     };
-    this.Idea = {
-      ideaDescription: '',
-      ideaTitle: '',
+    this.idea = {
+      description: '',
+      title: '',
       id: '',
       isPassed: false
     };
   }
 
+  get Idea(): Idea {
+    return this.idea;
+  }
+
+  set Idea(value: Idea) {
+    this.idea = value;
+  }
+
   ngOnInit() {
+    this.challengeService.getChallenge(this.challenge.id).subscribe((data: ChallengeGetDTO) => {
+      this.challengeDTO = data;
+      if (this.challengeDTO.ideas) {
+        this.rowData = this.challengeDTO.ideas;
+      }
+    });
   }
 
   public addFile() {
-    console.log(this.Idea);
-    if (this.Idea) {
-      this.rowData.push(Object.assign({}, this.Idea));
+    if (this.idea) {
+      this.idea.id = NewGuid();
+      this.rowData.push(Object.assign({}, this.idea));
       this.gridApi.setRowData(this.rowData);
-      this.Idea.ideaDescription = '';
+      this.idea.title = '';
+      this.idea.description = '';
     }
   }
 
@@ -63,9 +85,19 @@ export class ChallengeIdeaComponent implements OnInit {
 
   onSelectionChanged($event: any) {
     const selectedRows: Idea[] = this.gridApi.getSelectedRows();
-    console.log(selectedRows);
-    console.log($event);
+    if (selectedRows && selectedRows.length > 0) {
+      this.Idea = selectedRows[0];
+    }
+  }
 
+  submitForm() {
+    const challengePostIdeaDTO = new ChallengePostIdeaDTO();
+    challengePostIdeaDTO.id = this.challenge.id;
+    challengePostIdeaDTO.Ideas = this.rowData;
+    this.challengeService.postChallengeIdea(challengePostIdeaDTO);
+  }
+
+  closeForm() {
   }
 }
 

@@ -2,8 +2,12 @@
   <div class="col-12">
     <div class="row">
       <div class="form-group col-11 m-0 p-1">
-        <label for="IdeaDescription">Idea Description</label>
-        <textarea [(ngModel)]="Idea.ideaDescription"
+        <label for="IdeaTitle">Title</label>
+        <input [(ngModel)]="Idea.title"
+               class="form-control" id="IdeaTitle"
+               type="text">
+        <label for="IdeaDescription">Description</label>
+        <textarea [(ngModel)]="Idea.description"
                   class="form-control" id="IdeaDescription"
                   rows="3"></textarea>
       </div>
@@ -27,6 +31,10 @@
         id="myGrid"
         style="height: 200px;"
       ></ag-grid-angular>
+    </div>
+    <div class="row">
+      <button (click)="submitForm()" class="btn btn-success">Submit</button>
+      <button (click)="closeForm()" class="btn btn-danger">Close</button>
     </div>
   </div>
 </div>

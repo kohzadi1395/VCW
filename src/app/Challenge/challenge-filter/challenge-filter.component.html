@@ -2,9 +2,13 @@
   <div class="col-12">
     <div class="row">
       <div class="form-group col-11 m-0 p-1">
-        <label for="FilterDescription">Filter Description</label>
-        <textarea [(ngModel)]="Filter.filterDescription"
-                  class="form-control" id="FilterDescription"
+        <label for="IdeaTitle">Title</label>
+        <input [(ngModel)]="Filter.title"
+               class="form-control" id="IdeaTitle"
+               type="text">
+        <label for="IdeaDescription">Description</label>
+        <textarea [(ngModel)]="Filter.description"
+                  class="form-control" id="IdeaDescription"
                   rows="3"></textarea>
       </div>
       <div class="my-auto mx-auto">
@@ -26,6 +30,10 @@
         id="myGrid"
         style="height: 200px;"
       ></ag-grid-angular>
+    </div>
+    <div class="row">
+      <button (click)="submitForm()" class="btn btn-success">Submit</button>
+      <button (click)="closeForm()" class="btn btn-danger">Close</button>
     </div>
   </div>
 </div>

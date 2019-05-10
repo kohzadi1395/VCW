@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12">
       <h5>Attachment</h5>
-      <input [uploader]="uploader" multiple ng2FileSelect type="file"/><br/>
+      <input (change)="addFileUploader()" [uploader]="uploader" multiple ng2FileSelect type="file"/><br/>
     </div>
   </div>
   <div class="row">

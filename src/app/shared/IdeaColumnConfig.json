@@ -1,7 +1,13 @@
 [
   {
-    "headerName": "Idea Description",
-    "field": "ideaDescription",
+    "headerName": "Title",
+    "field": "title",
+    "sortable": true,
+    "filter": "agTextColumnFilter"
+  },
+  {
+    "headerName": "Description",
+    "field": "description",
     "sortable": true,
     "filter": "agTextColumnFilter"
   }

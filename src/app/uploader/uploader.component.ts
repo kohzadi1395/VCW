@@ -62,4 +62,7 @@ export class UploaderComponent {
     }
   }
 
+  addFileUploader() {
+    console.log(this.uploader.queue);
+  }
 }

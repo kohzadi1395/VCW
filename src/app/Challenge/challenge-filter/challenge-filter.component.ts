@@ -3,6 +3,8 @@ import {Challenge} from '../../Models/challenge';
 import {Filter} from '../../Models/filter';
 import {GridRowData} from '../../Models/gridRowData';
 import {NewGuid} from '../../../Utilities/UtilityStringFunc';
+import {ChallengePostFilterDTO} from '../../DTOs/challengeDTOs';
+import {ChallengeService} from '../../Service/challenge.service';
 
 @Component({
   selector: 'app-challenge-filter',
@@ -20,7 +22,7 @@ export class ChallengeFilterComponent implements OnInit {
   private gridApi: any;
   private getRowNodeId: (data) => any;
 
-  constructor() {
+  constructor(private challengeService: ChallengeService) {
     this.columnDefs = require('../../shared/FilterColumnConfig.json');
     this.defaultColDef = {
       editable: false,
@@ -32,8 +34,8 @@ export class ChallengeFilterComponent implements OnInit {
       return data.id;
     };
     this.Filter = {
-      filterDescription: '',
-      filterTitle: '',
+      description: '',
+      title: '',
       id: ''
     };
   }
@@ -48,8 +50,8 @@ export class ChallengeFilterComponent implements OnInit {
       this.rowData.push(Object.assign({}, this.Filter));
       this.gridApi.setRowData(this.rowData);
       this.Filter = {
-        filterDescription: '',
-        filterTitle: '',
+        description: '',
+        title: '',
         id: ''
       };
       console.log(this.Filter);
@@ -72,6 +74,16 @@ export class ChallengeFilterComponent implements OnInit {
     console.log(selectedRows);
     console.log($event);
 
+  }
+
+  submitForm() {
+    const challengePostFilterDTO = new ChallengePostFilterDTO();
+    challengePostFilterDTO.id = this.challenge.id;
+    challengePostFilterDTO.filters = this.rowData;
+    this.challengeService.postChallengeFilter(challengePostFilterDTO);
+  }
+
+  closeForm() {
   }
 }
 
