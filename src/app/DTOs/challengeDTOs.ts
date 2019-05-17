@@ -1,6 +1,6 @@
 import {Person} from '../Models/person';
 import {Idea} from '../Models/idea';
-import {Filter} from "../Models/filter";
+import {Filter} from '../Models/filter';
 
 export interface ChallengeGetDTO {
   id: string;
@@ -15,7 +15,7 @@ export interface ChallengeGetDTO {
   challengeState: number;
   invitePerson: Array<Person>;
   ideas: Array<Idea>;
-
+  filters: Array<Filter>;
 }
 
 
@@ -41,4 +41,20 @@ export class ChallengePostIdeaDTO {
 export class ChallengePostFilterDTO {
   id: string;
   filters: Array<Filter>;
+}
+
+export class ChallengeSelectionIdeaDTO {
+  challengeId: string;
+  kill: Array<Idea>;
+  keep: Array<Idea>;
+  review: Array<Idea>;
+  multiply: Array<Idea>;
+}
+
+export class ChallengeSelectionFilterDTO {
+  challengeId: string;
+  kill: Array<Filter>;
+  keep: Array<Filter>;
+  review: Array<Filter>;
+  multiply: Array<Filter>;
 }

@@ -3,6 +3,8 @@ import {Challenge} from '../../Models/challenge';
 import {GridRowData} from '../../Models/gridRowData';
 import {Idea} from '../../Models/idea';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {ChallengeService} from '../../Service/challenge.service';
+import {ChallengeGetDTO, ChallengeSelectionIdeaDTO} from '../../DTOs/challengeDTOs';
 
 @Component({
   selector: 'app-select-idea',
@@ -18,9 +20,11 @@ export class SelectIdeaComponent implements OnInit {
   KeepIdeas: Array<Idea>;
   ReviewIdeas: Array<Idea>;
   MultiplyIdeas: Array<Idea>;
+  challengeSelectionIdeaDTO: ChallengeSelectionIdeaDTO;
+  private challengeDTO: ChallengeGetDTO;
 
-  constructor() {
-    this.ideas = require('../../shared/ideaData.json');
+  constructor(private challengeService: ChallengeService) {
+    this.ideas = [];
     this.KillIdeas = [];
     this.KeepIdeas = [];
     this.ReviewIdeas = [];
@@ -28,6 +32,20 @@ export class SelectIdeaComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.challengeService.getChallenge(this.challenge.id).subscribe((data: ChallengeGetDTO) => {
+      this.challengeDTO = data;
+      if (this.challengeDTO.ideas) {
+        this.ideas = this.challengeDTO.ideas;
+        console.log(this.ideas);
+      }
+    });
+    this.challengeSelectionIdeaDTO = new ChallengeSelectionIdeaDTO();
+    this.challengeSelectionIdeaDTO.challengeId = this.challenge.id;
+    this.challengeService.postSelectionIdea(this.challengeSelectionIdeaDTO);
+    // this.KeepIdeas = this.challengeSelectionIdeaDTO.keep;
+    // this.KillIdeas = this.challengeSelectionIdeaDTO.kill;
+    // this.ReviewIdeas = this.challengeSelectionIdeaDTO.review;
+    // this.MultiplyIdeas = this.challengeSelectionIdeaDTO.multiply;
   }
 
   drop(event: CdkDragDrop<Idea[]>) {
@@ -37,7 +55,17 @@ export class SelectIdeaComponent implements OnInit {
         event.previousIndex, event.currentIndex);
     } else {
       moveItemInArray(this.ideas, event.previousIndex, event.currentIndex);
-
     }
+  }
+
+  submitForm() {
+    this.challengeSelectionIdeaDTO.keep = this.KeepIdeas;
+    this.challengeSelectionIdeaDTO.kill = this.KillIdeas;
+    this.challengeSelectionIdeaDTO.review = this.ReviewIdeas;
+    this.challengeSelectionIdeaDTO.multiply = this.MultiplyIdeas;
+    this.challengeService.postSelectionIdea(this.challengeSelectionIdeaDTO);
+  }
+
+  closeForm() {
   }
 }

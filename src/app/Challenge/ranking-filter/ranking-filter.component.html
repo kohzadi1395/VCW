@@ -2,16 +2,16 @@
   <div class="col-12">
     <p class="m-0 p-0 text-center font-weight-bold">Filter</p>
     <div (cdkDropListDropped)="dropped($event)"
-         [cdkDropListData]="selectedfilters"
+         [cdkDropListData]="selectedFilters"
          cdkDropList
          class="border border-dark  accordion w-100" id="accordionFilter" style="min-height: 200px">
-      <div *ngFor="let filter of selectedfilters" cdkDrag class="card pop">
+      <div *ngFor="let filter of selectedFilters" cdkDrag class="card pop">
         <div class="card-header" id="headingFilter">
           <h2 class="mb-0 p-0 text-center">
             <button [attr.data-target]="'#collapse-'+filter.id" aria-controls="collapseFilter" aria-expanded="true"
                     class="btn btn-link p-0 m-0"
                     data-toggle="collapse" type="button">
-              {{filter.filterTitle}}
+              {{filter.title}}
             </button>
           </h2>
         </div>
@@ -19,11 +19,15 @@
         <div [attr.id]="'collapse-'+filter.id" aria-labelledby="headingFilter" class="collapse"
              data-parent="#accordionFilter">
           <div class="card-body">
-            {{filter.filterDescription}}
+            {{filter.description}}
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+<div class="modal-footer mt-2">
+  <button (click)="closeForm()" class="btn btn-danger">Close</button>
+  <button (click)="submitForm()" class="btn btn-success ml-2">Submit</button>
 </div>
 

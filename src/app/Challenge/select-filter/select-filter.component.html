@@ -11,7 +11,7 @@
             <button [attr.data-target]="'#collapse-'+filter.id" aria-controls="collapseFilter" aria-expanded="true"
                     class="btn btn-link p-0 m-0"
                     data-toggle="collapse" type="button">
-              {{filter.filterTitle}}
+              {{filter.title}}
             </button>
           </h2>
         </div>
@@ -19,7 +19,7 @@
         <div [attr.id]="'collapse-'+filter.id" aria-labelledby="headingFilter" class="collapse"
              data-parent="#accordionFilter">
           <div class="card-body">
-            {{filter.filterDescription}}
+            {{filter.description}}
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
                   <button [attr.data-target]="'#collapse-'+filter.id" aria-controls="collapseKill" aria-expanded="true"
                           class="btn btn-link p-0 m-0"
                           data-toggle="collapse" type="button">
-                    {{filter.filterTitle}}
+                    {{filter.title}}
                   </button>
                 </h2>
               </div>
@@ -51,7 +51,7 @@
               <div [attr.id]="'collapse-'+filter.id" aria-labelledby="headingKill" class="collapse"
                    data-parent="#accordionKill">
                 <div class="card-body">
-                  {{filter.filterDescription}}
+                  {{filter.description}}
                 </div>
               </div>
             </div>
@@ -72,7 +72,7 @@
                   <button [attr.data-target]="'#collapse-'+filter.id" aria-controls="collapseKeep" aria-expanded="true"
                           class="btn btn-link p-0 m-0"
                           data-toggle="collapse" type="button">
-                    {{filter.filterTitle}}
+                    {{filter.title}}
                   </button>
                 </h2>
               </div>
@@ -80,7 +80,7 @@
               <div [attr.id]="'collapse-'+filter.id" aria-labelledby="headingKeep" class="collapse"
                    data-parent="#accordionKeep">
                 <div class="card-body">
-                  {{filter.filterDescription}}
+                  {{filter.description}}
                 </div>
               </div>
             </div>
@@ -104,7 +104,7 @@
                           aria-expanded="true"
                           class="btn btn-link p-0 m-0"
                           data-toggle="collapse" type="button">
-                    {{filter.filterTitle}}
+                    {{filter.title}}
                   </button>
                 </h2>
               </div>
@@ -112,7 +112,7 @@
               <div [attr.id]="'collapse-'+filter.id" aria-labelledby="headingReview" class="collapse"
                    data-parent="#accordionReview">
                 <div class="card-body">
-                  {{filter.filterDescription}}
+                  {{filter.description}}
                 </div>
               </div>
             </div>
@@ -134,7 +134,7 @@
                           aria-expanded="true"
                           class="btn btn-link p-0 m-0"
                           data-toggle="collapse" type="button">
-                    {{filter.filterTitle}}
+                    {{filter.title}}
                   </button>
                 </h2>
               </div>
@@ -142,7 +142,7 @@
               <div [attr.id]="'collapse-'+filter.id" aria-labelledby="headingMultiply" class="collapse"
                    data-parent="#accordionMultiply">
                 <div class="card-body">
-                  {{filter.filterDescription}}
+                  {{filter.description}}
                 </div>
               </div>
             </div>
@@ -151,6 +151,10 @@
       </div>
     </div>
   </div>
+</div>
+<div class="modal-footer mt-2">
+  <button (click)="closeForm()" class="btn btn-danger">Close</button>
+  <button (click)="submitForm()" class="btn btn-success ml-2">Submit</button>
 </div>
 
 

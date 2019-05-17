@@ -11,15 +11,14 @@
             <button [attr.data-target]="'#collapse-'+idea.id" aria-controls="collapseIdea" aria-expanded="true"
                     class="btn btn-link p-0 m-0"
                     data-toggle="collapse" type="button">
-              {{idea.ideaTitle}}
+              {{idea.title}}
             </button>
           </h2>
         </div>
-
         <div [attr.id]="'collapse-'+idea.id" aria-labelledby="headingIdea" class="collapse"
              data-parent="#accordionIdea">
           <div class="card-body">
-            {{idea.ideaDescription}}
+            {{idea.description}}
           </div>
         </div>
       </div>
@@ -43,15 +42,14 @@
                   <button [attr.data-target]="'#collapse-'+idea.id" aria-controls="collapseKill" aria-expanded="true"
                           class="btn btn-link p-0 m-0"
                           data-toggle="collapse" type="button">
-                    {{idea.ideaTitle}}
+                    {{idea.title}}
                   </button>
                 </h2>
               </div>
-
               <div [attr.id]="'collapse-'+idea.id" aria-labelledby="headingKill" class="collapse"
                    data-parent="#accordionKill">
                 <div class="card-body">
-                  {{idea.ideaDescription}}
+                  {{idea.description}}
                 </div>
               </div>
             </div>
@@ -72,15 +70,14 @@
                   <button [attr.data-target]="'#collapse-'+idea.id" aria-controls="collapseKeep" aria-expanded="true"
                           class="btn btn-link p-0 m-0"
                           data-toggle="collapse" type="button">
-                    {{idea.ideaTitle}}
+                    {{idea.title}}
                   </button>
                 </h2>
               </div>
-
               <div [attr.id]="'collapse-'+idea.id" aria-labelledby="headingKeep" class="collapse"
                    data-parent="#accordionKeep">
                 <div class="card-body">
-                  {{idea.ideaDescription}}
+                  {{idea.description}}
                 </div>
               </div>
             </div>
@@ -103,15 +100,14 @@
                   <button [attr.data-target]="'#collapse-'+idea.id" aria-controls="collapseReview" aria-expanded="true"
                           class="btn btn-link p-0 m-0"
                           data-toggle="collapse" type="button">
-                    {{idea.ideaTitle}}
+                    {{idea.title}}
                   </button>
                 </h2>
               </div>
-
               <div [attr.id]="'collapse-'+idea.id" aria-labelledby="headingReview" class="collapse"
                    data-parent="#accordionReview">
                 <div class="card-body">
-                  {{idea.ideaDescription}}
+                  {{idea.description}}
                 </div>
               </div>
             </div>
@@ -133,15 +129,14 @@
                           aria-expanded="true"
                           class="btn btn-link p-0 m-0"
                           data-toggle="collapse" type="button">
-                    {{idea.ideaTitle}}
+                    {{idea.title}}
                   </button>
                 </h2>
               </div>
-
               <div [attr.id]="'collapse-'+idea.id" aria-labelledby="headingMultiply" class="collapse"
                    data-parent="#accordionMultiply">
                 <div class="card-body">
-                  {{idea.ideaDescription}}
+                  {{idea.description}}
                 </div>
               </div>
             </div>
@@ -151,5 +146,7 @@
     </div>
   </div>
 </div>
-
-
+<div class="modal-footer mt-2">
+  <button (click)="closeForm()" class="btn btn-danger">Close</button>
+  <button (click)="submitForm()" class="btn btn-success ml-2">Submit</button>
+</div>
