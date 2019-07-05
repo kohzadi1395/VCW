@@ -4,9 +4,11 @@ import 'rxjs/add/operator/toPromise';
 import {Observable, throwError} from 'rxjs';
 import {
   ChallengeGetDTO,
+  ChallengeGetVcfDTO,
   ChallengePostDTO,
   ChallengePostFilterDTO,
   ChallengePostIdeaDTO,
+  ChallengePostVcfDTO,
   ChallengeSelectionFilterDTO,
   ChallengeSelectionIdeaDTO
 } from '../DTOs/challengeDTOs';
@@ -33,7 +35,14 @@ export class ChallengeService {
     );
   }
 
+  getVcf(id: string): Observable<ChallengeGetVcfDTO> {
+    return this.httpClient.get<ChallengeGetVcfDTO>(this.BaseUrl + '/vcf/' + id).pipe(
+      retry(1)
+    );
+  }
+
   getSelectionFilterDTO(id: string): Observable<ChallengeSelectionFilterDTO> {
+    console.log(id);
     return this.httpClient.get<ChallengeSelectionFilterDTO>(this.BaseUrl + '/FilterStatus/' + id).pipe(
       retry(1)
     );
@@ -88,5 +97,10 @@ export class ChallengeService {
     return this.httpClient.post(this.BaseUrl + '/FilterStatus', challengeSelectionFilterDTO).subscribe(res => {
       challengeSelectionFilterDTO = res as ChallengeSelectionFilterDTO;
     });
+  }
+
+  postVcfResult(challengePostVcfDTO: ChallengePostVcfDTO) {
+    console.log(challengePostVcfDTO);
+    return this.httpClient.post(this.BaseUrl + '/Vcf', challengePostVcfDTO).subscribe();
   }
 }

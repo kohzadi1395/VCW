@@ -7,13 +7,9 @@ import {DashboardPanelComponent} from './dashboardComponents/dashboard-panel/das
 import {ChallengeListComponent} from './Challenge/challenge-list/challenge-list.component';
 import {ChallengeViewComponent} from './Challenge/challenge-view/challenge-view.component';
 import {ChallengePanelComponent} from './Challenge/challenge-panel/challenge-panel.component';
-import {UploaderComponent} from "./uploader/uploader.component";
+import {UploaderComponent} from './uploader/uploader.component';
 
 const routes = [
-  {
-    path: '',
-    component: UploaderComponent
-  },
   {
     path: '',
     component: UploaderComponent

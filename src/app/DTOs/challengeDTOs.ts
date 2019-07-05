@@ -58,3 +58,25 @@ export class ChallengeSelectionFilterDTO {
   review: Array<Filter>;
   multiply: Array<Filter>;
 }
+
+export class ChallengeGetVcfDTO {
+  challengeId: string;
+  filterPasseds: Array<FilterPassed>;
+}
+
+export class FilterPassed {
+  filter: Filter;
+  ideas: Array<Idea>;
+}
+
+export class ChallengePostVcfDTO {
+  challengeId: string;
+  VcfResultDTOs: Array<VcfResultDTO>;
+}
+
+export class VcfResultDTO {
+  filterId: string;
+  ideaId: string;
+  isPassed: boolean;
+}
+

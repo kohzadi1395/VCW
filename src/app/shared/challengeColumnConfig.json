@@ -25,6 +25,12 @@
         "field": "deadline",
         "sortable": false,
         "filter": "agTextColumnFilter"
+      },
+      {
+        "headerName": "Title",
+        "field": "title",
+        "sortable": true,
+        "filter": "agTextColumnFilter"
       }
     ]
   },

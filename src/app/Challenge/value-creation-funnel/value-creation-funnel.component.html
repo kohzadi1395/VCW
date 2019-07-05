@@ -1,19 +1,19 @@
 <div class="container">
-  <div *ngFor="let ideaFilter of ideaFilters" class="mt-3 border border-dark rounded ">
+  <div *ngFor="let ideaFilter of ideaFilters.filterPasseds" class="mt-3 border border-dark rounded ">
     <div class="row bg-light m-0 p-0">
-      <div [outsideClick]="true" [popoverTitle]="ideaFilter.filterTitle"
-           [popover]="ideaFilter.filterDescription"
+      <div [outsideClick]="true" [popoverTitle]="ideaFilter.filter.title"
+           [popover]="ideaFilter.filter.description"
            class="col-12 text-left font-weight-bolder border-bottom border-secondary "
            style="font-size: large;">
-        {{ideaFilter.filterTitle}}
+        {{ideaFilter.filter.title}}
       </div>
     </div>
     <div *ngFor="let idea of ideaFilter.ideas" class="row border-bottom border-light m-0 p-0">
       <div [outsideClick]="true"
-           [popoverTitle]="idea.ideaTitle"
-           [popover]="idea.ideaDescription"
+           [popoverTitle]="idea.title"
+           [popover]="idea.description"
            class="col-10 btn text-left pl-4" style="font-size: small;">
-        {{idea.ideaTitle}}
+        {{idea.title}}
       </div>
       <div class="col-2 my-auto">
         <ui-switch [(ngModel)]="idea.isPassed"
@@ -27,5 +27,9 @@
       </div>
     </div>
   </div>
+</div>
+<div class="modal-footer mt-2">
+  <button (click)="closeForm()" class="btn btn-danger">Close</button>
+  <button (click)="submitForm()" class="btn btn-success ml-2">Submit</button>
 </div>
 
