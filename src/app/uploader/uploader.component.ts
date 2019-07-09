@@ -1,68 +1,45 @@
-import {Component, Input} from '@angular/core';
-import {FileUploader, FileUploaderOptions} from 'ng2-file-upload';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Challenge} from '../Models/challenge';
+import {HttpClient, HttpEventType} from '@angular/common/http';
 
 @Component({
   selector: 'app-uploader',
   templateUrl: './uploader.component.html',
   styleUrls: ['./uploader.component.css']
 })
-export class UploaderComponent {
+export class UploaderComponent implements OnInit {
   @Input()
   challenge: Challenge;
-  URL = 'asdf';
-  uploader = new FileUploader(
-    {
-      url: 'http://localhost:61072/api/Challenge/upload',
-      headers: [
-        {name: 'X-XSRF-TOKEN', value: this.getCookie('XSRF-TOKEN')},
-        {name: 'Accept', value: 'application/json'}
-      ],
-      isHTML5: true,
-      // allowedMimeType: ["image/jpeg", "image/png", "application/pdf", "application/msword", "application/zip"]
-      allowedFileType: [
-        'application',
-        'image',
-        'video',
-        'audio',
-        'pdf',
-        'compress',
-        'doc',
-        'xls',
-        'ppt'
-      ],
-      removeAfterUpload: false,
-      autoUpload: false,
-      maxFileSize: 10 * 1024 * 1024
-    } as FileUploaderOptions
-  );
-  private fileType = '';
 
-  constructor() {
-    this.uploader.onBuildItemForm = (fileItem, form) => {
-      form.append('FileType', this.FileType);
-    };
+
+  @Output()
+  public onUploadFinished = new EventEmitter();
+  private progress: number;
+  private message: string;
+
+  constructor(private http: HttpClient) {
   }
 
-  get FileType(): string {
-    return this.fileType;
+  ngOnInit() {
   }
 
-  @Input()
-  set FileType(value: string) {
-    this.fileType = value;
-    console.log(this.fileType);
-  }
-
-  getCookie(name: string): string {
-    const value = '; ' + document.cookie;
-    const parts = value.split('; ' + name + '=');
-    if (parts.length === 2) {
-      return decodeURIComponent(parts.pop().split(';').shift());
+  public uploadFile = (files) => {
+    if (files.length === 0) {
+      return;
     }
-  }
 
-  addFileUploader() {
-    console.log(this.uploader.queue);
+    const fileToUpload = files[0] as File;
+    const formData = new FormData();
+    formData.append('file', fileToUpload, fileToUpload.name);
+
+    this.http.post('http://localhost:61072/api/upload', formData, {reportProgress: true, observe: 'events'})
+      .subscribe(event => {
+        if (event.type === HttpEventType.UploadProgress) {
+          this.progress = Math.round(100 * event.loaded / event.total);
+        } else if (event.type === HttpEventType.Response) {
+          this.message = 'Upload success.';
+          this.onUploadFinished.emit(event.body);
+        }
+      });
   }
 }
