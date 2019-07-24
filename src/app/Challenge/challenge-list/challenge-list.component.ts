@@ -19,9 +19,9 @@ export class ChallengeListComponent implements OnInit {
     columnNameClicked: '',
     columnData: null
   };
-  private getRowNodeId: (data) => any;
-  private rowData: Array<ChallengeGetDTO>;
-  private defaultColDef: {
+  public getRowNodeId: (data) => any;
+  public rowData: Array<ChallengeGetDTO>;
+  public defaultColDef: {
     filter: boolean;
     resizable: boolean;
     editable: boolean;
@@ -29,7 +29,7 @@ export class ChallengeListComponent implements OnInit {
   };
   private gridApi: any;
   private gridColumnApi: any;
-  private columnDefs: any;
+  public columnDefs: any;
   private readonly route: ActivatedRoute;
 
   public constructor(private challengeService: ChallengeService,
@@ -49,7 +49,7 @@ export class ChallengeListComponent implements OnInit {
       filter: true,
       resizable: true
     };
-    this.getRowNodeId = function (data) {
+    this.getRowNodeId = (data) => {
       return data.id;
     };
 
@@ -76,7 +76,7 @@ export class ChallengeListComponent implements OnInit {
 
   autoSizeAll() {
     const allColumnIds = [];
-    this.gridColumnApi.getAllColumns().forEach(function (column) {
+    this.gridColumnApi.getAllColumns().forEach((column) => {
       allColumnIds.push(column.colId);
     });
     this.gridColumnApi.autoSizeColumns(allColumnIds);

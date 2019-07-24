@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Challenge} from '../../Models/challenge';
 import {TransferDataService} from '../../Service/transfer-data.service';
 import {GridRowData} from '../../Models/gridRowData';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-challenge-panel',
@@ -15,7 +16,9 @@ export class ChallengePanelComponent implements OnInit {
   challenge: Challenge;
   componentMustShow: any;
 
-  constructor(private transfer: TransferDataService) {
+  constructor(private transfer: TransferDataService,
+              private router: Router,
+              private route: ActivatedRoute) {
     console.log(transfer.storage);
     this.gridRowData = transfer.storage;
     if (this.gridRowData) {
@@ -24,6 +27,9 @@ export class ChallengePanelComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.challenge === undefined) {
+      this.router.navigate(['../../home'], {relativeTo: this.route});
+    }
   }
 
   openForm() {

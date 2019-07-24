@@ -22,7 +22,6 @@ import {HomeComponent} from './MainPage/home/home.component';
 import {LoginPageComponent} from './MainPage/Login/login-page/login-page.component';
 import {HttpClientModule} from '@angular/common/http';
 import {DefaultComponent} from './MainPage/default/default.component';
-import {FileUploadModule} from 'ng2-file-upload';
 import {InvitePersonComponent} from './InvitePersonToChallenge/invite-person/invite-person.component';
 import {TagComponent} from './tag/tag.component';
 import {DashboardPanelComponent} from './dashboardComponents/dashboard-panel/dashboard-panel.component';
@@ -45,8 +44,10 @@ import {EditRemoveButtonComponent} from './edit-remove-button/edit-remove-button
 import {ChildMessageRendererComponent} from './ONlyForTest/child-message-renderer/child-message-renderer.component';
 import {CurrencyRendererComponent} from './ONlyForTest/currency-renderer/currency-renderer.component';
 import {UiSwitchModule} from 'ngx-ui-switch';
-import {PopoverModule} from 'ngx-bootstrap/popover';
 import {UploaderComponent} from './uploader/uploader.component';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
+import {PopoverModule} from 'ngx-bootstrap/popover';
 
 @NgModule({
   declarations: [
@@ -99,11 +100,11 @@ import {UploaderComponent} from './uploader/uploader.component';
     PaginationModule.forRoot(),
     // RouterModule.forRoot(routes),
     HttpClientModule,
-    FileUploadModule,
     MatAutocompleteModule,
     AgGridModule.withComponents([ChildMessageRendererComponent,
       CurrencyRendererComponent]),
     UiSwitchModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
     PopoverModule.forRoot(),
   ],
   providers: [],

@@ -1,4 +1,3 @@
-/* tslint:disable:prefer-for-of */
 import {Component, Input, OnInit} from '@angular/core';
 import {Challenge} from '../../Models/challenge';
 import {GridRowData} from '../../Models/gridRowData';

@@ -56,7 +56,7 @@ export class MainChallengeComponent implements OnInit {
       filter: true,
       resizable: true
     };
-    this.getRowNodeId = function (data) {
+    this.getRowNodeId = (data) => {
       return data.id;
     };
   }
@@ -65,7 +65,8 @@ export class MainChallengeComponent implements OnInit {
 
   }
 
-  public addFile() {
+  public addFile($event) {
+    this.row.fileName = $event.dbPath.replace(/^.*([\\/:])/, '');
     if (this.row.docType && this.row.fileName) {
       this.rowData.push({
         fileName: this.row.fileName,
@@ -86,7 +87,7 @@ export class MainChallengeComponent implements OnInit {
 
   autoSizeAll() {
     const allColumnIds = [];
-    this.gridColumnApi.getAllColumns().forEach(function (column) {
+    this.gridColumnApi.getAllColumns().forEach((column) => {
       allColumnIds.push(column.colId);
     });
     this.gridColumnApi.autoSizeColumns(allColumnIds);
@@ -100,8 +101,6 @@ export class MainChallengeComponent implements OnInit {
     const selectedRows: Attachment[] = this.gridApi.getSelectedRows();
     console.log(selectedRows);
   }
-
-
 }
 
 

@@ -7,22 +7,22 @@ import {DashboardPanelComponent} from './dashboardComponents/dashboard-panel/das
 import {ChallengeListComponent} from './Challenge/challenge-list/challenge-list.component';
 import {ChallengeViewComponent} from './Challenge/challenge-view/challenge-view.component';
 import {ChallengePanelComponent} from './Challenge/challenge-panel/challenge-panel.component';
-import {UploaderComponent} from './uploader/uploader.component';
+import {DefaultComponent} from './MainPage/default/default.component';
 
 const routes = [
+  // {
+  //   path: '',
+  //   component: UploaderComponent
+  // },
   {
     path: '',
-    component: UploaderComponent
+    redirectTo: '/Default',
+    pathMatch: 'full'
   },
-//   {
-//     path: '',
-//     redirectTo: '/Default',
-//     pathMatch: 'full'
-//   },
-//   {
-//     path: 'Default',
-//     component: DefaultComponent,
-//   },
+  {
+    path: 'Default',
+    component: DefaultComponent,
+  },
   {
     path: 'challenge',
     component: CreateChallengeComponent

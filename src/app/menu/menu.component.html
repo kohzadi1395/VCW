@@ -24,7 +24,7 @@
         </a>
         <div class="dropdown-menu">
           <p class=" text-muted small pl-2 mb-0">My Current Challenge</p>
-          <a class="dropdown-item text-dark" *ngIf="MyCurrentChallenges && !MyCurrentChallenges.length<= 0">---</a>
+          <a *ngIf="MyCurrentChallenges && MyCurrentChallenges.length> 0" class="dropdown-item text-dark">---</a>
           <a class="dropdown-item text-dark" [routerLink]="['allChallenge']"
              *ngFor="let myCurrentChallenge of MyCurrentChallenges">{{myCurrentChallenge.title}}</a>
           <div class="dropdown-divider"></div>

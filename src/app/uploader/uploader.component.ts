@@ -13,9 +13,9 @@ export class UploaderComponent implements OnInit {
 
 
   @Output()
-  public onUploadFinished = new EventEmitter();
-  private progress: number;
-  private message: string;
+  public UploadFinished = new EventEmitter();
+  public progress: number;
+  public message: string;
 
   constructor(private http: HttpClient) {
   }
@@ -38,7 +38,7 @@ export class UploaderComponent implements OnInit {
           this.progress = Math.round(100 * event.loaded / event.total);
         } else if (event.type === HttpEventType.Response) {
           this.message = 'Upload success.';
-          this.onUploadFinished.emit(event.body);
+          this.UploadFinished.emit(event.body);
         }
       });
   }

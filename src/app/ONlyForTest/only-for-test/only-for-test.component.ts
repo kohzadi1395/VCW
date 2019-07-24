@@ -8,10 +8,10 @@ import {Component, OnInit} from '@angular/core';
 export class OnlyForTestComponent implements OnInit {
   gridColumnApi: any;
   columnDefs: ({ headerName: string; field: string } | { filter: string; headerName: string; field: string })[];
-  private gridApi: any;
-  private defaultColDef: { filter: boolean; editable: boolean; sortable: boolean };
-  private readonly rowData: ({ price: number; model: string; id: string; make: string })[];
-  private getRowNodeId;
+  public gridApi: any;
+  public defaultColDef: { filter: boolean; editable: boolean; sortable: boolean };
+  public readonly rowData: ({ price: number; model: string; id: string; make: string })[];
+  public getRowNodeId;
 
   constructor() {
     this.columnDefs = [
@@ -78,7 +78,7 @@ export class OnlyForTestComponent implements OnInit {
       sortable: true,
       filter: true
     };
-    this.getRowNodeId = function (data) {
+    this.getRowNodeId = (data) => {
       return data.id;
     };
   }

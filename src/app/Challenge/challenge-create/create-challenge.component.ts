@@ -16,9 +16,9 @@ import {ChallengeService} from '../../Service/challenge.service';
 export class CreateChallengeComponent implements OnInit {
 
   challenge: Challenge;
-  private form: FormGroup;
+  public form: FormGroup;
   private selectedPersons: Person[] = [];
-  private topPerson: Person[];
+  public topPerson: Person[];
 
   constructor(private  fb: FormBuilder,
               private http: HttpClient,
